@@ -1,6 +1,6 @@
 # Обзор источников 0.1.0
 
-Дата проверки: 2026-10-13. Донор закреплен на `459bcd0b7742e2f636374daa3552d9574527410e`; [полная карта](../skills/symfony-best-practices/SOURCES.md) содержит 29 выбранных каталогов и 58 исходных Markdown-файлов. Скилл переработан под Symfony 8.x, проверенная базовая линия — 8.0 / PHP 8.4+.
+Дата проверки: 2026-10-13. Первый донор закреплен на `459bcd0b7742e2f636374daa3552d9574527410e`, второй fatonh/symfony-skills — на `ecebbb967b4ae7006694aec9b32ec071c60d84d7`. [Полная карта](../skills/symfony-best-practices/SOURCES.md) содержит 42 repository-qualified skill entries и 77 файлов (71 Markdown и 6 supporting PHP examples/templates). Скилл переработан под Symfony 8.x, проверенная базовая линия — 8.0 / PHP 8.4+.
 
 Общие донорские рекомендации сохранены: тонкие entry points, явные зависимости, Doctrine owning sides, ограниченные batch loops, миграции через versioned files, изоляция тестов, идемпотентные handlers, validation/authorization и кеш с определенным freshness contract. Повторяющиеся инструкции объединены. Примеры API другой minor-версии не перенесены как универсально доступные.
 
@@ -21,6 +21,17 @@
 | O11 | Cache предлагает универсальные tags/hash/expiry и описывает ранний recompute как stale zero-latency | Выбор зависит от freshness/coherence; tenant/user/permissions входят в контракт ключа, invalidation после commit, topology проверяется |
 | O12 | Несколько capabilities названы 8.1+ как группа без точного package/signature | Используется проверенный 8.0 baseline; новый API сверяется по конкретному component/minor и owning class |
 
+| O13 | console-commands запрещает supported Command/execute, named arguments и требует 8.1 method form | Сохраняется supported классическая форма при необходимости; 8.0 invokable и MapInput покрыты, новые method APIs gated по installed minor |
+| O14 | bundle-organization задает обязательную module-first структуру и широкий Domain exclude | Flat layout допустим, app modules не становятся bundles; из discovery исключаются POJOs, не все реальные domain services |
+| O15 | problem-details помещает HTTP status/type в domain exception | Mapping выполняется в HTTP adapter; pure domain не получает Symfony/HTTP dependencies |
+| O16 | problem-details требует все поля и копирует HttpException message, теряет headers | RFC optional members соблюдены, 4xx тоже санитизируются, protocol headers сохраняются; formatter scoped к API и security paths |
+| O17 | dto-and-validation считает MapQueryString failures 422 и ожидает top-level ValidationFailedException | На baseline MapQueryString по умолчанию 404; статус выбран явно, exception/cause chain учитывается |
+| O18 | DTO правила исключают nullable input и смешивают JSON decode depth с object MaxDepth | PATCH missing/null разделены, actual hydration/PropertyInfo/cascade проверяются; decoder depth и object graph controls различаются |
+| O19 | JWT назван неотзываемым; stateless APIs объявлены не нуждающимися в CSRF | Supported server-side blocklist/revocation проверяются; cookie credentials требуют CSRF analysis независимо от stateless |
+| O20 | doctrine-orm требует UUID v7, string enums, private constructor и universal orphanRemoval | Существующий ID/domain contract сохраняется; int-backed enums допустимы, ownership и lifecycle определяют mapping |
+| O21 | query-optimization обещает двухзапросный Paginator, constant-time keyset и JDBC batching | Проверяется фактический query plan/count и stable seek tuple; ORM memory batching не обещает multi-row SQL batching |
+| O22 | messenger-async/transactional-patterns приравнивают stamp к atomic outbox, flush/postFlush к commit | Same physical connection/transaction и dispatch timing проверяются; stamp deferral и durable outbox разделены |
+
 Дополнительно усилены escaping в Twig, защита персонального HTTP cache, DB unique constraint поверх UniqueEntity и отличие RateLimiter от edge DoS protection. Не переносились донорские plugin hooks, slash commands, agents, runner-selection и остальные невыбранные skills.
 
 ## Первичные источники
@@ -31,8 +42,10 @@
 - [Foundry docs](https://github.com/zenstruck/foundry/blob/8b6feea05407f2edf4970312119167cfd9828e10/docs/index.rst): real/proxy factories, deprecation, reset и PHPUnit extension version gates.
 - [UX TwigComponent docs](https://github.com/symfony/ux-twig-component/blob/a1f1765482f92705f074ded029d33165dcf7a05f/doc/index.rst): public props, mount и порядок hydration.
 
+- [Lexik 3.x token invalidation](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/8d614e1406ffabd36b1de5d3560e2dcc9db75e79/Resources/doc/11-invalidate-token.rst), [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html) и [JWT BCP RFC 8725](https://www.rfc-editor.org/rfc/rfc8725.html): blocklist/logout, HTTP error semantics и verification/trust.
+
 ## Проверка и ее границы
 
-SHA-256 донорских файлов фактически сверяются validator с checkout закрепленного commit через --upstream-dir. Обычный offline validator проверяет форму provenance и лицензий, а не скачивает upstream. Исходная MIT-лицензия воспроизведена полностью и входит в оба архива; документы первичных источников не копируются в пакет.
+SHA-256 всех 77 файлов фактически сверяются validator с обоими pinned checkout через повторяемые --upstream ID=PATH. Legacy --upstream-dir проверяет первый checkout. Обычный offline validator проверяет форму provenance и лицензий, а не скачивает upstream. Обе исходные MIT-лицензии воспроизведены полностью и входит в оба архива; документы первичных источников не копируются в пакет.
 
 Сценарное ревью обнаружило неоднозначный порядок checkpoint/flush в новом batch pseudocode: теперь ORM checkpoint изменяется до final flush, а прямой DBAL update явно выполняется внутри той же transaction. Сценарные решения и структурный validator не доказывают поведение каждого API в реальном приложении; такую проверку выполняют проектные тесты/CI при применении.

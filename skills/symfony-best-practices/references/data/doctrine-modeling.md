@@ -1,6 +1,6 @@
 # Doctrine relations, transactions, and locking
 
-Read for doctrine-relations and doctrine-transactions. Determine ORM, DBAL, DoctrineBundle, DB server and entity-manager versions separately from Symfony.
+Read for doctrine-relations, doctrine-transactions, doctrine-orm, and transactional-patterns. Determine ORM, DBAL, DoctrineBundle, DB server and entity-manager versions separately from Symfony.
 
 ## Relations
 
@@ -35,3 +35,9 @@ Acquire `PESSIMISTIC_WRITE`/`PESSIMISTIC_READ` only inside an active transaction
 On an isolated DB of the intended platform, test owning-side persistence, aggregate deletion/orphan semantics, uniqueness, atomic rollback, and competing writes. Confirm manager recovery after failure rather than mocking `flush()`. Run relevant schema validation and migration review through the project runner; never repair production with `doctrine:schema:update --force`.
 
 Primary guidance: [Doctrine associations](https://www.doctrine-project.org/projects/doctrine-orm/en/3.5/reference/working-with-associations.html), [transactions/concurrency](https://www.doctrine-project.org/projects/doctrine-orm/en/3.5/reference/transactions-and-concurrency.html), [multiple managers](https://symfony.com/doc/8.0/doctrine/multiple_entity_managers.html).
+
+## Entity conventions and lifecycle
+
+Prefer typed PHP attribute mappings and compatible immutable date/backed-enum types where they match the domain. String-backed and integer-backed enums are both valid when their values are intentional; do not confuse a stable integer backing value with an ordinal. ID choice follows existing schema/API contracts; UUID v7 can help particular allocation/indexing needs, but neither UUIDs nor private constructors are universal ORM requirements. Factories/behavior methods help invariants; verify hydration/proxies and fixture tooling before changing construction.
+
+A flush synchronizes the whole pending unit of work; it is not the outer commit boundary when an explicit transaction is already active. postFlush is also not proof of that outer commit. Use a real after-commit/outbox lifecycle for external effects. Avoid recursive flushes from lifecycle callbacks.

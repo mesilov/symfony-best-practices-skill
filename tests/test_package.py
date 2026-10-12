@@ -34,7 +34,7 @@ class PackageTests(unittest.TestCase):
             self.fail("The canonical skill is missing")
         changes = [
             ("version mismatch", "SKILL.md", lambda s: s.replace('version: "0.1.0"', 'version: "0.2.0"')),
-            ("missing reference", "references/cache.md", None),
+            ("missing reference", "references/data/cache.md", None),
             ("broken link", "SKILL.md", lambda s: s + "\n[missing](references/absent.md)\n"),
             ("path escape", "SKILL.md", lambda s: s + "\n[escape](../../README.md)\n"),
             ("missing license", "THIRD_PARTY_NOTICES.md", None),
@@ -44,7 +44,7 @@ class PackageTests(unittest.TestCase):
             ("disabled discovery", "agents/openai.yaml", lambda s: s + "\npolicy:\n  allow_implicit_invocation: false\n"),
             ("invalid UI prompt", "agents/openai.yaml", lambda s: s.replace("$symfony-best-practices", "a different tool")),
             ("invalid manifest version", "sources.json", lambda s: self.change_manifest(s, "version")),
-            ("placeholder", "references/cache.md", lambda s: s + "\nTODO: finish this section\n"),
+            ("placeholder", "references/data/cache.md", lambda s: s + "\nTODO: finish this section\n"),
             ("missing donor", "sources.json", lambda s: self.change_manifest(s, "missing")),
             ("duplicate donor", "sources.json", lambda s: self.change_manifest(s, "duplicate")),
             ("invalid upstream sha", "sources.json", lambda s: self.change_manifest(s, "sha")),
@@ -71,7 +71,7 @@ class PackageTests(unittest.TestCase):
         if mode == "version": value["skill_version"] = "0.2.0"
         elif mode == "missing": value["donors"].pop()
         elif mode == "duplicate": value["donors"][-1] = value["donors"][0]
-        elif mode == "sha": value["upstream"]["commit"] = "main"
+        elif mode == "sha": value["upstreams"][0]["commit"] = "main"
         elif mode == "hash": value["donors"][0]["files"][0]["sha256"] = "bad"
         elif mode == "file": value["donors"][0]["files"].pop()
         elif mode == "target": value["donors"][0]["targets"] = ["references/absent.md"]

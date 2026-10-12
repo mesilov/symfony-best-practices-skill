@@ -1,6 +1,6 @@
 # Schema and data migrations
 
-Read for doctrine-migrations. Inspect installed DoctrineMigrationsBundle, doctrine/migrations, DBAL and database versions; their majors are independent.
+Read for doctrine-migrations from both selected donors. Inspect installed DoctrineMigrationsBundle, doctrine/migrations, DBAL and database versions; their majors are independent.
 
 ## Prepare and review
 
@@ -32,3 +32,7 @@ Check command help for manager selectors and use an exact version for rollback; 
 Run against the intended DB engine/version with representative constraints/data. Verify SQL scope, resulting schema, application reads/writes, and recovery. State separately which evidence came from dry-run, DB execution and deployment; a local rehearsal cannot establish production completion.
 
 Primary guidance: [Symfony migrations](https://symfony.com/doc/8.0/doctrine.html#migrations-creating-the-database-tables-structure), [Doctrine migrations](https://www.doctrine-project.org/projects/doctrine-migrations/en/3.9/reference/managing-migrations.html), [implicit commits](https://www.doctrine-project.org/projects/doctrine-migrations/en/3.9/explanation/implicit-commits.html).
+
+## Historical data and deployment compatibility
+
+Historical migrations should use stable SQL/DBAL operations rather than importing evolving application entities. Separate large resumable backfills from short schema migrations. Test old/new application instances during expand/backfill/contract and check the actual DB platform syntax/locking (for example PostgreSQL concurrent-index operations require a compatible nontransactional migration). One coherent change can need several migrations; do not force exactly one file per PR. Schema-diff validation in CI requires a correctly provisioned platform/schema and review of intentionally excluded mappings.

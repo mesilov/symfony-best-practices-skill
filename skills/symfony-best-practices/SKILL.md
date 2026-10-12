@@ -1,6 +1,6 @@
 ---
 name: symfony-best-practices
-description: Use when implementing, debugging, refactoring, or reviewing Symfony 8.x applications, including controllers, services, configuration, Doctrine persistence, Messenger, Scheduler, forms, security, cache, Twig components, and PHPUnit tests.
+description: Use when implementing, debugging, refactoring, or reviewing Symfony 8.x applications, including controllers and REST errors, services/bundles, console commands, configuration, Doctrine, Messenger/Scheduler, forms, authentication/JWT, authorization, cache, Twig, and PHPUnit tests.
 license: MIT
 metadata:
   version: "0.1.0"
@@ -20,20 +20,15 @@ Record the behavior to preserve, versions of affected packages, runtime, test da
 
 Read only relevant references; combine them when a change crosses boundaries.
 
-| Task | Reference |
+| Group | Read for the current task |
 | --- | --- |
-| Bootstrap, daily work, diagnostics, context, quality gates | [Workflow and quality](references/workflow-and-quality.md) |
-| Environment variables, parameters, secrets | [Configuration](references/configuration.md) |
-| Thin controllers/commands, DI, CQRS, ports, strategies, VOs/DTOs | [Architecture](references/architecture.md) |
-| Relations, owning sides, transactions, locking | [Doctrine modeling](references/doctrine-modeling.md) |
-| N+1, fetch modes, projections, bounded batches | [Doctrine performance](references/doctrine-performance.md) |
-| Schema changes, data migrations, rollback | [Migrations](references/migrations.md) |
-| PHPUnit, functional tests, doubles, Foundry, Panther/Playwright | [Testing](references/testing.md) |
-| Async handlers, transports, idempotency, retries/failures | [Messenger](references/messenger.md) |
-| Recurring work, timezones, downtime, overlap | [Scheduler](references/scheduler.md) |
-| Forms/validation, voters, rate limiting | [Security and forms](references/security-and-forms.md) |
-| Pools, TTLs, tags, stampede, HTTP cache | [Cache](references/cache.md) |
-| UX Twig components, props, slots, escaping | [Twig components](references/twig-components.md) |
+| Workflow | [Runtime and quality](references/workflow/workflow-and-quality.md), [configuration](references/workflow/configuration.md), [tests](references/workflow/testing.md) |
+| Architecture | [Services and domain](references/architecture/architecture.md), [modules/bundles](references/architecture/bundle-organization.md), [console](references/architecture/console-commands.md) |
+| HTTP/API | [REST and RFC 9457](references/http/rest-api.md), [DTOs/forms/validation](references/http/validation-and-forms.md) |
+| Data | [ORM/transactions](references/data/doctrine-modeling.md), [queries/batches](references/data/doctrine-performance.md), [migrations](references/data/migrations.md), [cache](references/data/cache.md) |
+| Background work | [Messenger](references/async/messenger.md), [Scheduler](references/async/scheduler.md) |
+| Security | [Authentication](references/security/authentication.md), [JWT](references/security/jwt.md), [authorization/rate limits](references/security/authorization-and-rate-limiting.md) |
+| Presentation | [Twig components](references/presentation/twig-components.md) |
 
 ## Apply and verify
 
@@ -45,4 +40,4 @@ Inspection does not imply permission to mutate shared state: identify the enviro
 
 Report what changed, the selected versions/runner, commands and results, and checks that were skipped or blocked. Local checks, CI, deployment, and live integration are separate evidence.
 
-[Sources and adaptation decisions](SOURCES.md) record all 29 donors, pinned revision, corrections, and license provenance.
+[Sources and adaptation decisions](SOURCES.md) record all 42 donors from two pinned repositories, corrections, and license provenance.

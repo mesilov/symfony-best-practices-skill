@@ -6,26 +6,21 @@
 
 ## Выбранная структура
 
-Канонический пакет: skills/symfony-best-practices/. SKILL.md содержит триггеры, общие ограничения и таблицу маршрутизации; двенадцать references/*.md раскрывают отдельные темы. agents/openai.yaml обеспечивает обычное автоматическое обнаружение Codex. Пакет самодостаточен и не требует MCP, плагина Superpowers, сети, глобального PHP или конкретного Docker service name.
+Канонический пакет: skills/symfony-best-practices/. SKILL.md содержит триггеры, общие ограничения и таблицу маршрутизации; 18 references/<group>/*.md в семи смысловых группах раскрывают отдельные темы. agents/openai.yaml обеспечивает обычное автоматическое обнаружение Codex. Пакет самодостаточен и не требует MCP, плагина Superpowers, сети, глобального PHP или конкретного Docker service name.
 
 Альтернативы: 29 отдельных skills сохраняют донорскую структуру, но дублируют общие правила и усложняют сопровождение. Один монолитный SKILL.md постоянно загружает все темы в контекст. Короткий единый вход со справочниками соответствует запросу на общий эталон и оставляет детали условными.
 
 ## Темы и происхождение
 
-1. workflow-and-quality: bootstrap-check, daily-workflow, effective-context, quality-checks.
-2. configuration: config-env-parameters.
-3. architecture: controller-cleanup, cqrs-and-handlers, interfaces-and-autowiring, ports-and-adapters, strategy-pattern, value-objects-and-dtos.
-4. doctrine-modeling: doctrine-relations, doctrine-transactions.
-5. doctrine-performance: doctrine-batch-processing, doctrine-fetch-modes.
-6. migrations: doctrine-migrations.
-7. testing: doctrine-fixtures-foundry, e2e-panther-playwright, functional-tests, tdd-with-phpunit, test-doubles-mocking.
-8. messenger: symfony-messenger, messenger-retry-failures.
-9. scheduler: symfony-scheduler.
-10. security-and-forms: form-types-validation, symfony-voters, rate-limiting.
-11. cache: symfony-cache.
-12. twig-components: twig-components.
+1. workflow: runtime/quality, configuration, tests/fixtures/browser isolation.
+2. architecture: services/domain/DI/CQRS/VOs, modules/bundles, Console input/lifecycle.
+3. http: REST/RFC 9457 и DTO/validation/forms, включая PATCH presence.
+4. data: ORM/relations/transactions, queries/batches, migrations, cache.
+5. async: Messenger/retries/outbox и Scheduler.
+6. security: authentication/firewalls, JWT lifecycle, authorization/voters/rate limits.
+7. presentation: Twig/UX components.
 
-Донор dev-toolings/superpowers-symfony закреплен на 459bcd0b7742e2f636374daa3552d9574527410e. Читаются SKILL.md и reference.md каждого выбранного каталога. Опечатка symfony-schedu в запросе разрешается в существующий symfony-scheduler. Карта всех 29 доноров, SHA-256 58 Markdown-файлов, полный MIT notice и список изменений входят в устанавливаемый пакет.
+Донор dev-toolings/superpowers-symfony закреплен на 459bcd0b7742e2f636374daa3552d9574527410e (29 skill entries / 58 Markdown files). fatonh/symfony-skills закреплен на ecebbb967b4ae7006694aec9b32ec071c60d84d7 (13 entries / 13 Markdown и 6 supporting PHP files). Все 42 записи сохранены с identity repository ID + name: doctrine-migrations каждого донора учитывается отдельно. Опечатка symfony-schedu разрешается в symfony-scheduler. Карта, 77 SHA-256, обе полные MIT notices и изменения входят в устанавливаемый пакет.
 
 ## Контракт работы агента
 
@@ -37,12 +32,12 @@
 
 Python validator проверяет метаданные, локальные ссылки, routing, полное покрытие доноров, provenance и лицензии. Unittest проверяет валидный пакет и поврежденные варианты. Детерминированный builder создает tar.gz, zip и SHA256SUMS только из канонического каталога skill. CI повторяет эти проверки и публикует build artifacts.
 
-Сценарные проверки агентом оценивают выбор runtime и minor-version API, Doctrine batch/rollback, Messenger redelivery/retry, migrations, изоляцию cache/Twig и границы доказательств. Это проверка рекомендаций; исполнение в реальном Symfony приложении отдельным условием приемки не является.
+Сценарные проверки агентом оценивают REST/problem details, auth/JWT, PATCH и Console lifecycle, а также выбор runtime и minor-version API, Doctrine batch/rollback, Messenger redelivery/retry, migrations, изоляцию cache/Twig и границы доказательств. Это проверка рекомендаций; исполнение в реальном Symfony приложении отдельным условием приемки не является.
 
 ## Критерии готовности
 
-- Один skill с именем symfony-best-practices и metadata.version 0.1.0; 12 доступных справочников.
-- Все 29 доноров представлены, лицензии сохранены, SHA и hashes зафиксированы.
+- Один skill с именем symfony-best-practices и metadata.version 0.1.0; 18 доступных справочников в 7 группах.
+- Все 42 донорских записи представлены, лицензии сохранены, SHA и hashes зафиксированы.
 - Нет обязательной зависимости от донорского symfony-context, Superpowers, конкретного container service или MCP.
 - Исправлены противоречия retry, закрытого EntityManager, конкурентной идемпотентности, migration rollback и browser DB isolation.
 - Validator, негативные тесты, проверка воспроизводимости архивов и сценарная проверка проходят; ограничения проверки явно описаны.

@@ -1,16 +1,6 @@
-# Forms, validation, authorization, and rate limits
+# Authorization and rate limiting
 
-Read for form-types-validation, symfony-voters, and rate-limiting. These are different boundaries: input validity does not grant access, and a rate limit does not grant a permission.
-
-## Forms and input validation
-
-Declare explicit form field types and map only intended writable fields. Place reusable constraints on input models/domain data; keep UI-only constraints on the form. Select validation groups for differing use cases rather than duplicating constraints. A data transformer rejects unconvertible values with `TransformationFailedException`; listeners belong only where input/model adaptation requires them.
-
-Handle the request and check `isSubmitted() && isValid()` before delegating to business work. On the 8.0 baseline, passing the Form object directly to the standard controller `render()` supports 422 for an invalid submitted form. Passing a prebuilt view or a custom response may use a different contract; assert the actual status. Use an appropriate redirect after successful browser writes.
-
-Keep CSRF enabled for browser forms where applicable; stateless APIs need their chosen authentication/request protection contract. Validate uploaded content, size and storage rules at the appropriate boundary. `UniqueEntity` improves user feedback but a DB unique constraint is required to settle concurrent writes. Input validation does not replace parameter binding, authorization or escaping.
-
-Do not persist a plaintext password from a registration DTO/form. Hash through the project's password hasher and avoid returning sensitive values. Check installed minor/bundle APIs before adopting new multi-step form features.
+Read for symfony-voters, rate-limiting, and security-authentication. For identity, read [Authentication](authentication.md); for input validity, read [Validation and forms](../http/validation-and-forms.md).
 
 ## Voters
 

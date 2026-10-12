@@ -2,7 +2,17 @@
 
 Версия **0.1.0** — единый эталонный Agent Skill для работы с **Symfony 8.x** в наших проектах. Проверенная базовая линия: Symfony 8.0 / PHP 8.4+. Конкретные minor-версии, пакеты и команды всегда определяются по проекту.
 
-[SKILL.md](skills/symfony-best-practices/SKILL.md) — короткий вход; 12 справочников покрывают все 29 выбранных донорских скиллов: рабочий процесс и качество, конфигурацию, архитектуру, Doctrine, миграции, тесты, Messenger, Scheduler, формы/безопасность, кеш и Twig.
+[SKILL.md](skills/symfony-best-practices/SKILL.md) — короткий вход; 18 справочников покрывают все 42 выбранных донорских скилла из двух репозиториев и физически разложены по семи смысловым группам.
+
+| Группа | Темы |
+| --- | --- |
+| workflow | Runtime, качество, конфигурация, тесты и fixtures |
+| architecture | Слои/DI/DDD/CQRS, модули/bundles, консольные команды |
+| http | REST, RFC 9457, DTO/validation/forms |
+| data | Doctrine ORM/транзакции, запросы/batches, миграции, кеш |
+| async | Messenger и Scheduler |
+| security | Authentication, JWT, authorization/voters/rate limiting |
+| presentation | Twig/UX components |
 
 ## Установка
 
@@ -31,9 +41,9 @@
 
 ## Происхождение
 
-Донор: [dev-toolings/superpowers-symfony](https://github.com/dev-toolings/superpowers-symfony), revision `459bcd0b7742e2f636374daa3552d9574527410e`.
+Доноры: [dev-toolings/superpowers-symfony](https://github.com/dev-toolings/superpowers-symfony), revision `459bcd0b7742e2f636374daa3552d9574527410e` — 29 скиллов; [fatonh/symfony-skills](https://github.com/fatonh/symfony-skills), revision `ecebbb967b4ae7006694aec9b32ec071c60d84d7` — еще 13.
 
-[Карта 29 доноров и изменений](skills/symfony-best-practices/SOURCES.md), [58 хешей источников](skills/symfony-best-practices/sources.json), [обзор исправлений](docs/source-review.md). Опечатка `symfony-schedu` разрешена в `symfony-scheduler`. Полная MIT-лицензия донора входит в пакет, авторская лицензия репозитория сохранена.
+[Карта 42 доноров и изменений](skills/symfony-best-practices/SOURCES.md), [77 хешей источников](skills/symfony-best-practices/sources.json), [обзор исправлений](docs/source-review.md). Опечатка `symfony-schedu` разрешена в `symfony-scheduler`. Полные MIT-лицензии обоих доноров входят в пакет, авторская лицензия репозитория сохранена.
 
 ## Разработка и сборка
 
@@ -47,7 +57,15 @@ python3 -m venv .venv
 .venv/bin/python scripts/build_release.py
 ```
 
-На Windows используйте `.venv\Scripts\python.exe`. Для проверки фактических donor hashes добавьте `--upstream-dir <checkout>` к validator; checkout должен стоять на закрепленном SHA. Обычная проверка работает без сети и проверяет структуру provenance; она не скачивает upstream.
+На Windows используйте `.venv\Scripts\python.exe`. Для сверки всех фактических source hashes передайте оба checkout на закрепленных SHA:
+
+```sh
+.venv/bin/python scripts/validate.py \
+  --upstream superpowers-symfony=<first-checkout> \
+  --upstream symfony-skills=<second-checkout>
+```
+
+Проверка старого первого донора через `--upstream-dir <checkout>` также поддерживается. Обычная проверка работает без сети и проверяет структуру provenance; она не скачивает upstream.
 
 Сборка создает `dist/symfony-best-practices-0.1.0.tar.gz`, `.zip` и `SHA256SUMS`. Архив содержит только самодостаточный skill, без исходного плагина, рабочих файлов и инструментов сборки. Повторная сборка в одном toolchain дает одинаковые байты; тест проверяет состав, содержимое и контрольные суммы обоих форматов. CI повторяет validator/tests/build и сохраняет артефакты.
 
@@ -57,4 +75,4 @@ python3 -m venv .venv
 
 ## Лицензия
 
-[MIT](LICENSE). Донорский copyright и полный notice сохранены в [THIRD_PARTY_NOTICES.md](skills/symfony-best-practices/THIRD_PARTY_NOTICES.md).
+[MIT](LICENSE). Оба донорских copyright и полные notices сохранены в [THIRD_PARTY_NOTICES.md](skills/symfony-best-practices/THIRD_PARTY_NOTICES.md).

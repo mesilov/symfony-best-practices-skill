@@ -1,6 +1,6 @@
 # Doctrine fetching and bounded processing
 
-Read for doctrine-fetch-modes and doctrine-batch-processing. Establish a query/memory baseline before changing a mapping.
+Read for doctrine-fetch-modes, doctrine-batch-processing, and doctrine-query-optimization. Establish a query/memory baseline before changing a mapping.
 
 ## Query shape
 
@@ -44,3 +44,9 @@ Define restart behavior, stable idempotency keys for external effects, progress/
 Test zero rows, an exact page, the final partial page, failure before commit, restart from checkpoint, and concurrent claim behavior when multiple workers run. Compare before/after query counts and memory; do not claim a performance improvement from a rewritten query alone.
 
 Primary guidance: [Doctrine batch processing](https://www.doctrine-project.org/projects/doctrine-orm/en/3.5/reference/batch-processing.html), [DQL](https://www.doctrine-project.org/projects/doctrine-orm/en/3.5/reference/dql-doctrine-query-language.html), [pagination](https://www.doctrine-project.org/projects/doctrine-orm/en/3.5/tutorials/pagination.html).
+
+## Pagination and indexes
+
+For to-many fetch joins, ordinary LIMIT/OFFSET can truncate root results or their collections. Use a supported Doctrine Paginator strategy or separate root-ID paging/fetching; inspect the generated SQL and counts rather than assuming a fixed two-query plan. For keyset traversal on a nonunique timestamp, include a stable unique tie-breaker and seek on the corresponding ordered tuple. Use suitable composite indexes and bound page sizes. Measure database plans/query count; keyset cost is not guaranteed constant for every filter/index.
+
+Use bounded existence queries where only existence is needed. ORM persist/flush batching limits unit-of-work memory; it does not imply JDBC-style SQL multi-row inserts. Use the DBAL/database bulk path deliberately when that behavior is needed.

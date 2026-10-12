@@ -39,4 +39,4 @@ Record: goal and expected behavior; installed Symfony/PHP/package versions; runt
 
 Report each check as passed, failed, or not run with its reason. A green linter cannot establish that DB tests, native CI or a live provider passed.
 
-Primary guidance: [Symfony 8.0 setup](https://symfony.com/doc/8.0/setup.html), [debugging](https://symfony.com/doc/8.0/debugging.html), [testing](https://symfony.com/doc/8.0/testing.html).
+Primary guidance: [Symfony 8.0 setup](https://symfony.com/doc/8.0/setup.html), [profiler/debugging](https://symfony.com/doc/8.0/profiler.html), [testing](https://symfony.com/doc/8.0/testing.html).

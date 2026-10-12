@@ -1,6 +1,6 @@
 # Application architecture and dependency injection
 
-Read for controller-cleanup, cqrs-and-handlers, interfaces-and-autowiring, ports-and-adapters, strategy-pattern, and value-objects-and-dtos.
+Read for controller-cleanup, cqrs-and-handlers, interfaces-and-autowiring, ports-and-adapters, strategy-pattern, value-objects-and-dtos, and layered-architecture.
 
 ## Thin entry points
 
@@ -24,7 +24,7 @@ Separate commands that change state from queries that return data when it clarif
 
 If buses exist, inspect their middleware and handler routing. Query results require synchronous handling: `HandleTrait`/`HandledStamp` or a direct query service cannot produce an async worker's future result. A command handler owns the write use case; define one transaction boundary, avoiding an extra flush if `doctrine_transaction` already owns it. One handler per command/query is a design convention; Messenger events may deliberately have multiple handlers.
 
-Publishing a message and committing business data are not automatically atomic. Use the project's outbox/after-commit contract where reliable publication is required; see [Messenger](messenger.md).
+Publishing a message and committing business data are not automatically atomic. Use the project's outbox/after-commit contract where reliable publication is required; see [Messenger](../async/messenger.md).
 
 ## Ports, adapters, and strategies
 
@@ -42,4 +42,10 @@ Store monetary amounts as integers in the currency's minor units or an explicit 
 
 Use plain unit tests for rules, container/integration checks for aliases/decorators/tag selection and repository adapters, and functional tests for retained HTTP/CLI behavior. Test invalid value-object inputs, equality, unsupported strategy and sync query returns. Verify architectural boundaries only for modules that adopt them.
 
-Primary guidance: [best practices](https://symfony.com/doc/8.0/best_practices.html), [controllers](https://symfony.com/doc/8.0/controller.html), [DI](https://symfony.com/doc/8.0/service_container.html), [tags](https://symfony.com/doc/8.0/service_container/tags.html), [multiple buses](https://symfony.com/doc/8.0/messenger/multiple_buses.html).
+Primary guidance: [best practices](https://symfony.com/doc/8.0/best_practices.html), [controllers](https://symfony.com/doc/8.0/controller.html), [DI](https://symfony.com/doc/8.0/service_container.html), [tags](https://symfony.com/doc/8.0/service_container/tags.html), [multiple buses](https://symfony.com/doc/8.0/messenger.html).
+
+## Layer and mapping choices
+
+Keep transport-specific Request/Response/Console types at adapters, business orchestration in application use cases, and query/persistence details in data-access adapters. Entity/output mapping may use a DTO factory or a dedicated mapper when useful; do not impose one service per aggregate, one service call per endpoint, or a mandatory pass-through service on simple reads. Internal DBAL rows can be valid data-access results when mapped deliberately at the public boundary.
+
+Use [Bundle organization](bundle-organization.md), [Console](console-commands.md), and [REST](../http/rest-api.md) for their specific lifecycle/contracts. Domain invariants still belong in the domain, even when request-shape constraints live on input DTOs.

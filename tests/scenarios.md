@@ -22,3 +22,15 @@ A baseline agent without the new skill answered six initial scenarios. It alread
 The first with-skill run covered S1–S10 and found a textual defect in S2's pseudocode. Reviewer evidence: "при ручной транзакции и ORM persist/setLastKey после этого flush checkpoint не попадёт в commit". The reference was corrected: mutate/persist ORM checkpoint before final flush, then commit both; DBAL alternative inside the same transaction is explicit.
 
 S1/S2/S3 were rerun after correction. The reviewer reported no remaining confirmed defects in the three revised references. Other scenario solutions matched the expected decisions. The scenarios assess routing and recommendations, not actual package/runtime compatibility under every combination of versions.
+
+## Extension scenarios for the second donor
+
+| ID | Scenario | Expected routing/decision |
+| --- | --- | --- |
+| B1 | Symfony 8.0 long CLI import, automation/cancel/resume; proposed 8.1 method/resolver API and constructor-only MapInput validation | architecture/console-commands + data/doctrine-performance + workflow/testing; supported API, explicit input validation, checkpoints and automation/cancellation contract |
+| B2 | REST problem+json, raw exception details/status in domain, HTML login and auth/method/rate headers | http/rest-api + http/validation-and-forms + security/authentication; adapter mapping, safe messages, headers, API-only scope and actual security handlers |
+| B3 | Multi-tenant Lexik API, decoded tenant/roles, refresh localStorage, claimed immediate stateless logout | security/jwt + authentication + authorization; verified claims, current resource membership, concrete revocation/refresh/cookie policy |
+| B4 | AppBundle or mandatory layers for simple CRUD; excluding all Domain; genuinely reusable library | architecture/architecture + bundle-organization; conditional layout and explicit discovery, reusable library/bundle distinguished from application modules |
+| B5 | PATCH missing/null, nested DTO cascade and malformed/payload/query errors | http/validation-and-forms + rest-api; presence representation, actual hydration/validation, explicit status/error matrix with MapQueryString baseline 404 |
+
+Before extension, a separate baseline agent identified partial/missing addressable guidance for these five tasks. A fresh with-skill agent read only relevant references and proposed concrete solutions for B1–B5. It found a Console documentation URL error and a narrow resolver version ambiguity; both were corrected against official docs and the reviewer rechecked the updated Console reference without new findings. Neither run executed an application, DB or auth provider.

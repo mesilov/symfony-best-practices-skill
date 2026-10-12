@@ -1,6 +1,6 @@
 # Messenger, retries, and failure handling
 
-Read for symfony-messenger and messenger-retry-failures; read [architecture](architecture.md) for CQRS/multiple buses.
+Read for symfony-messenger, messenger-retry-failures, and messenger-async; read [architecture](../architecture/architecture.md) for CQRS/multiple buses.
 
 ## Messages and routing
 
@@ -54,3 +54,7 @@ Monitor processing/final failures, retries, backlog, age and relevant business o
 Test handler success, permanent/transient failure, finite retries and failure transport; then concurrent duplicates, crash/restart and provider-unknown outcomes where effects matter. Separately identify in-memory tests and actual transport integration. Verify message serialization and old-payload behavior when changing a contract.
 
 Primary guidance: [Symfony 8.0 Messenger](https://symfony.com/doc/8.0/messenger.html), especially retries, idempotent handlers, worker lifecycle and middleware order. Inspect the installed component source for later minor-version APIs.
+
+## Deferred dispatch versus durable outbox
+
+DispatchAfterCurrentBusStamp defers processing until the current bus completes; middleware ordering matters, including dispatch_after_current_bus before doctrine_transaction. Deferral alone is not a durable outbox or proof that a transport insert happened in the business transaction. Atomic DB + Doctrine-transport writes require the same physical connection and transaction with verified dispatch timing. Other brokers need their explicit outbox/relay reliability path. Test the rollback/crash window instead of assuming the stamp guarantees atomic publication.
