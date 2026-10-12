@@ -1,0 +1,4 @@
+interface:
+  display_name: "Symfony Best Practices"
+  short_description: "Symfony 8.x development, debugging, and review"
+  default_prompt: "Use $symfony-best-practices to handle this Symfony 8.x task using the project's runtime, conventions, and relevant checks."
