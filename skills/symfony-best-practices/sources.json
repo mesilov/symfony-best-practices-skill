@@ -1,0 +1,1378 @@
+{
+  "schema_version": 3,
+  "skill_version": "0.1.0",
+  "reviewed_on": "2026-10-15",
+  "target": {
+    "symfony": "8.x",
+    "reference_baseline": "8.1",
+    "php_minimum": "8.4"
+  },
+  "donors": [
+    {
+      "name": "bootstrap-check",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/bootstrap-check",
+      "files": [
+        {
+          "path": "content/skills/bootstrap-check/SKILL.md",
+          "sha256": "4319eb893d3543c8f9bb38e7171e42f1fa98772dd3822c7673e1dd08d9faf152"
+        },
+        {
+          "path": "content/skills/bootstrap-check/reference.md",
+          "sha256": "901b38f1187a88b37ef181afb41f9f5b99cca3baf2ef4d555b7aaf23d20ed3aa"
+        }
+      ],
+      "targets": [
+        "references/workflow/workflow-and-quality.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "daily-workflow",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/daily-workflow",
+      "files": [
+        {
+          "path": "content/skills/daily-workflow/SKILL.md",
+          "sha256": "26b4ccface94a5ad57a5656211be6efb41a9864675b001d2a6eb05c4b1e0cd0b"
+        },
+        {
+          "path": "content/skills/daily-workflow/reference.md",
+          "sha256": "886d53518689f1ebdcdd17a80e27a2de5f9e1825a491dba8dbafabe14f9a0df1"
+        }
+      ],
+      "targets": [
+        "references/workflow/workflow-and-quality.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "effective-context",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/effective-context",
+      "files": [
+        {
+          "path": "content/skills/effective-context/SKILL.md",
+          "sha256": "03fa14f1fc24b71446d3deebe7ff1550acfac31c2d19f9ef71fc97adce554b42"
+        },
+        {
+          "path": "content/skills/effective-context/reference.md",
+          "sha256": "76b0c01bfa2e2f1d8362873d8508c5860146935654dcb5fa77ee8202f6d94ca1"
+        }
+      ],
+      "targets": [
+        "references/workflow/workflow-and-quality.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "quality-checks",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/quality-checks",
+      "files": [
+        {
+          "path": "content/skills/quality-checks/SKILL.md",
+          "sha256": "bc8e080f8f585e761a91c5b0ce1db6335ae78e0dfdbcd1f7885346dfe3f91a7c"
+        },
+        {
+          "path": "content/skills/quality-checks/reference.md",
+          "sha256": "30a5b84c5cb523c85c57c13550f3170a21a480acf60303f33b100c7dc93c5592"
+        }
+      ],
+      "targets": [
+        "references/workflow/workflow-and-quality.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "config-env-parameters",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/config-env-parameters",
+      "files": [
+        {
+          "path": "content/skills/config-env-parameters/SKILL.md",
+          "sha256": "abd55bc04dd461b5d55f7f70192be50f0ab18f5127de59b3db3f459885cc6250"
+        },
+        {
+          "path": "content/skills/config-env-parameters/reference.md",
+          "sha256": "2e6e5e92e4d639b61fe0ae2cf9da1a96620b2da24264314d067864e060a574ae"
+        }
+      ],
+      "targets": [
+        "references/workflow/configuration.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "controller-cleanup",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/controller-cleanup",
+      "files": [
+        {
+          "path": "content/skills/controller-cleanup/SKILL.md",
+          "sha256": "a58a31f697e1f5ff7f83fcd2ce965c5ea0402bf4c1bfed456fa29a40a7850f29"
+        },
+        {
+          "path": "content/skills/controller-cleanup/reference.md",
+          "sha256": "db5a8dc3e767b158b63b1db5f39bd77777149380d1b1b56c3dea1e813aef708a"
+        }
+      ],
+      "targets": [
+        "references/architecture/architecture.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "cqrs-and-handlers",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/cqrs-and-handlers",
+      "files": [
+        {
+          "path": "content/skills/cqrs-and-handlers/SKILL.md",
+          "sha256": "99c2fcf2a3b9c8977c4a475d8055aea982a253825c364900643e88a86d720f55"
+        },
+        {
+          "path": "content/skills/cqrs-and-handlers/reference.md",
+          "sha256": "0ef017a556f099e7f7c76a8daf4611bc0e09f8b011395cd5b3da868192fd97be"
+        }
+      ],
+      "targets": [
+        "references/architecture/architecture.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "interfaces-and-autowiring",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/interfaces-and-autowiring",
+      "files": [
+        {
+          "path": "content/skills/interfaces-and-autowiring/SKILL.md",
+          "sha256": "3f3398e78a7d3cf6844a4055ebb1eb4934e91345a6c4d78447639c920bf94190"
+        },
+        {
+          "path": "content/skills/interfaces-and-autowiring/reference.md",
+          "sha256": "5cd2b8ab15c3072c68cc7d800d9fd7861854362400d3333fc5c6a9b70a34ad36"
+        }
+      ],
+      "targets": [
+        "references/architecture/architecture.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "ports-and-adapters",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/ports-and-adapters",
+      "files": [
+        {
+          "path": "content/skills/ports-and-adapters/SKILL.md",
+          "sha256": "85fb7c609d44502101136ce54e1f0d6be3421cf725d2c311d1d1efac7fb23a43"
+        },
+        {
+          "path": "content/skills/ports-and-adapters/reference.md",
+          "sha256": "f11f25ad3bbac43ede8bebb845a5acbce7bcc535ba6551c4177df328c172dbce"
+        }
+      ],
+      "targets": [
+        "references/architecture/architecture.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "strategy-pattern",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/strategy-pattern",
+      "files": [
+        {
+          "path": "content/skills/strategy-pattern/SKILL.md",
+          "sha256": "f9894e8c14e7b3ab6db7b0091415d185523d290244a44dac91865cd1bd5880e7"
+        },
+        {
+          "path": "content/skills/strategy-pattern/reference.md",
+          "sha256": "0fdc6acd0cd4b239de22a1629affbda82fd3b0615f7c8a4b97d94b32d43f5626"
+        }
+      ],
+      "targets": [
+        "references/architecture/architecture.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "value-objects-and-dtos",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/value-objects-and-dtos",
+      "files": [
+        {
+          "path": "content/skills/value-objects-and-dtos/SKILL.md",
+          "sha256": "00eb560b0661ded4abe23f55e8c0866f37850175d483760d8c20d45a20478e9c"
+        },
+        {
+          "path": "content/skills/value-objects-and-dtos/reference.md",
+          "sha256": "3a31c7ab2c3569888b8f58a2eca7cd4940b8c650799be1a36286ca58704ae9c5"
+        }
+      ],
+      "targets": [
+        "references/architecture/architecture.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "doctrine-relations",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/doctrine-relations",
+      "files": [
+        {
+          "path": "content/skills/doctrine-relations/SKILL.md",
+          "sha256": "ca1dac8dfdc3612005ec2ae8e3918d36adb1a8f43283e6d1a3e03b8becc11c13"
+        },
+        {
+          "path": "content/skills/doctrine-relations/reference.md",
+          "sha256": "6d0b9683b90be6685a378115e362dc52ab981a1afe018584057573a4e3e0211f"
+        }
+      ],
+      "targets": [
+        "references/data/doctrine-modeling.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "doctrine-transactions",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/doctrine-transactions",
+      "files": [
+        {
+          "path": "content/skills/doctrine-transactions/SKILL.md",
+          "sha256": "3b6dddf10a101630d53626dace7bb14eb131624c1314c85b21cd3acab3483b2f"
+        },
+        {
+          "path": "content/skills/doctrine-transactions/reference.md",
+          "sha256": "9f15c32a0e842c7b5dd0b9f9ed7fb47812226cb10fe7d076b1ec3425549cefff"
+        }
+      ],
+      "targets": [
+        "references/data/doctrine-modeling.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "doctrine-batch-processing",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/doctrine-batch-processing",
+      "files": [
+        {
+          "path": "content/skills/doctrine-batch-processing/SKILL.md",
+          "sha256": "19ad9e5dd0daeb9f72829beb81922401eccaa22c4d14086254eed356adb4e8c5"
+        },
+        {
+          "path": "content/skills/doctrine-batch-processing/reference.md",
+          "sha256": "83c1d2befea38611aec95d8677b52c8a2eb49e9ba675ea1041f40a8062a570f0"
+        }
+      ],
+      "targets": [
+        "references/data/doctrine-performance.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "doctrine-fetch-modes",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/doctrine-fetch-modes",
+      "files": [
+        {
+          "path": "content/skills/doctrine-fetch-modes/SKILL.md",
+          "sha256": "f5696fc8a4645c71084ddaeebefb5664db50fe3738fa4a1000c8a1707d1c8b30"
+        },
+        {
+          "path": "content/skills/doctrine-fetch-modes/reference.md",
+          "sha256": "2d5bea02c1ba9c99f0bfb280a9643c48bfba435546ce08835d2b7daca6aee7b2"
+        }
+      ],
+      "targets": [
+        "references/data/doctrine-performance.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "doctrine-migrations",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/doctrine-migrations",
+      "files": [
+        {
+          "path": "content/skills/doctrine-migrations/SKILL.md",
+          "sha256": "52e1b903e1fbdc3d2d6326355ee580246aa2c4cefef990184490a705f8068a09"
+        },
+        {
+          "path": "content/skills/doctrine-migrations/reference.md",
+          "sha256": "9ad3a63f5c1892cab838ef82d4d8271c71a1c01ce21e7f8775ab0069d7b5ecc1"
+        }
+      ],
+      "targets": [
+        "references/data/migrations.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "doctrine-fixtures-foundry",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/doctrine-fixtures-foundry",
+      "files": [
+        {
+          "path": "content/skills/doctrine-fixtures-foundry/SKILL.md",
+          "sha256": "c7fb328e03657ec9a56ffb62b5744916e64fbf19a0a934d3bc5bd90ec5dd1619"
+        },
+        {
+          "path": "content/skills/doctrine-fixtures-foundry/reference.md",
+          "sha256": "b88be1bb6487c3d4f34554b688ddcdc22d423aa565134d4f26afa5f94ef7256d"
+        }
+      ],
+      "targets": [
+        "references/workflow/testing.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "e2e-panther-playwright",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/e2e-panther-playwright",
+      "files": [
+        {
+          "path": "content/skills/e2e-panther-playwright/SKILL.md",
+          "sha256": "b5f36e8317a36d88b315b46e793a769340dba66aec8fc8fcb7825101ad36506a"
+        },
+        {
+          "path": "content/skills/e2e-panther-playwright/reference.md",
+          "sha256": "cad313a16e90cd43f8f097bb14430fbdf0eb09d4ba1f271b3b7d2567452b5a3f"
+        }
+      ],
+      "targets": [
+        "references/workflow/testing.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "functional-tests",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/functional-tests",
+      "files": [
+        {
+          "path": "content/skills/functional-tests/SKILL.md",
+          "sha256": "127fda06c31dc62bd05b3dab4efbb9c6422a842320245e11d9de157be669adae"
+        },
+        {
+          "path": "content/skills/functional-tests/reference.md",
+          "sha256": "4ef31e7b1c948b2fa16925a0a20b7013163661455b13da349b8f05b4aacff575"
+        }
+      ],
+      "targets": [
+        "references/workflow/testing.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "tdd-with-phpunit",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/tdd-with-phpunit",
+      "files": [
+        {
+          "path": "content/skills/tdd-with-phpunit/SKILL.md",
+          "sha256": "53f4e4d26e0cdb51a5f673fb29e285b1709fb57043892443f319592ba84e9af2"
+        },
+        {
+          "path": "content/skills/tdd-with-phpunit/reference.md",
+          "sha256": "7ad496a977e39ba25a494eed8cee2c8c6d8f3a002fdc70f2dfa95685899fe6de"
+        }
+      ],
+      "targets": [
+        "references/workflow/testing.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "test-doubles-mocking",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/test-doubles-mocking",
+      "files": [
+        {
+          "path": "content/skills/test-doubles-mocking/SKILL.md",
+          "sha256": "ddd4eec4e5a440d3c7dfb81352a54dab3283fa4c5f7d767d0a3d8f8e96d9a452"
+        },
+        {
+          "path": "content/skills/test-doubles-mocking/reference.md",
+          "sha256": "ff5e19b35b62c1d3de4a9c5ed26fe9c1ad432fafd9bdadcd177492e5d8bc674d"
+        }
+      ],
+      "targets": [
+        "references/workflow/testing.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "symfony-messenger",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/symfony-messenger",
+      "files": [
+        {
+          "path": "content/skills/symfony-messenger/SKILL.md",
+          "sha256": "05a60c9fb20835860ca5be6892e8d89068e724d7ebb15c88cc73e3d4f9ae0228"
+        },
+        {
+          "path": "content/skills/symfony-messenger/reference.md",
+          "sha256": "55d79c5f2c71f28637a1e328796c72178b527ae511cb7d4abb23d8edb9559dc0"
+        }
+      ],
+      "targets": [
+        "references/async/messenger.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "messenger-retry-failures",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/messenger-retry-failures",
+      "files": [
+        {
+          "path": "content/skills/messenger-retry-failures/SKILL.md",
+          "sha256": "ba3b304f2c1d4042e0088ee5e428eccf9f4bfb138575ad91e13b0a65ae185b43"
+        },
+        {
+          "path": "content/skills/messenger-retry-failures/reference.md",
+          "sha256": "3c4d62de4130bec8ef0eee7e2fa0ceee56f47626b873b2384549c44edefe3be8"
+        }
+      ],
+      "targets": [
+        "references/async/messenger.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "symfony-scheduler",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/symfony-scheduler",
+      "files": [
+        {
+          "path": "content/skills/symfony-scheduler/SKILL.md",
+          "sha256": "e639576c705c799829e5834bbd73619b05be378e3d2c656f771a80e4aa23579b"
+        },
+        {
+          "path": "content/skills/symfony-scheduler/reference.md",
+          "sha256": "cb64d9537f8fc8587106faa2464156e8387c8bad09da6861aa9c717b10583da2"
+        }
+      ],
+      "targets": [
+        "references/async/scheduler.md"
+      ],
+      "requested_path": "content/skills/symfony-schedu",
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "form-types-validation",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/form-types-validation",
+      "files": [
+        {
+          "path": "content/skills/form-types-validation/SKILL.md",
+          "sha256": "d2df443dec7d064bc90dd55152a72b65c471d9647448021f6c38f8f3e1a8bd7c"
+        },
+        {
+          "path": "content/skills/form-types-validation/reference.md",
+          "sha256": "3b6a308d2c2f8707e8f331e9546fcf42c3915bb98018979efd46e06378c5ade0"
+        }
+      ],
+      "targets": [
+        "references/http/validation-and-forms.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "symfony-voters",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/symfony-voters",
+      "files": [
+        {
+          "path": "content/skills/symfony-voters/SKILL.md",
+          "sha256": "0a11bd9f31a93a3d5977a257b192df1f7b96c3f8d27d1e5f9cd9d9d655524f76"
+        },
+        {
+          "path": "content/skills/symfony-voters/reference.md",
+          "sha256": "2a107967dfce7b94a50706b5b01b434017e6e09859e3af524aa3d915867f9277"
+        }
+      ],
+      "targets": [
+        "references/security/authorization-and-rate-limiting.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "rate-limiting",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/rate-limiting",
+      "files": [
+        {
+          "path": "content/skills/rate-limiting/SKILL.md",
+          "sha256": "63d6477e6675bf34d0cf6a70346ca9640753aa8aafaaebdef07c5e96747e116e"
+        },
+        {
+          "path": "content/skills/rate-limiting/reference.md",
+          "sha256": "343134342e8e468c3b155b487123559b459ab2b66401ae5eafcb844fcd7773bc"
+        }
+      ],
+      "targets": [
+        "references/security/authorization-and-rate-limiting.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "symfony-cache",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/symfony-cache",
+      "files": [
+        {
+          "path": "content/skills/symfony-cache/SKILL.md",
+          "sha256": "9e68aa25f4ebd2ffad20addecea137fde9d832cd6008da3c927f8034677543ba"
+        },
+        {
+          "path": "content/skills/symfony-cache/reference.md",
+          "sha256": "2c76b6c63f0bf46bf616741a93df59ee6191326e1730d0a7d4ff15772bddd73d"
+        }
+      ],
+      "targets": [
+        "references/data/cache.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "name": "twig-components",
+      "source_url": "https://github.com/dev-toolings/superpowers-symfony/tree/459bcd0b7742e2f636374daa3552d9574527410e/content/skills/twig-components",
+      "files": [
+        {
+          "path": "content/skills/twig-components/SKILL.md",
+          "sha256": "65c328c10d86af2f6a59994ce924cd5a36ede88dcf60a1d78a61df825acc7869"
+        },
+        {
+          "path": "content/skills/twig-components/reference.md",
+          "sha256": "05dc0e5900d6c6ab31d31b1f0550bf816dda9130c872c05d5cafd0bd2cafacf7"
+        }
+      ],
+      "targets": [
+        "references/presentation/twig-components.md"
+      ],
+      "upstream": "superpowers-symfony"
+    },
+    {
+      "upstream": "symfony-skills",
+      "name": "bundle-organization",
+      "source_url": "https://github.com/fatonh/symfony-skills/tree/ecebbb967b4ae7006694aec9b32ec071c60d84d7/skills/bundle-organization",
+      "files": [
+        {
+          "path": "skills/bundle-organization/SKILL.md",
+          "sha256": "fe86ecc9013c12e756c1e85b3d9de42ee5daf2577d4ee1b1cf6619643530dbc6"
+        }
+      ],
+      "targets": [
+        "references/architecture/bundle-organization.md"
+      ]
+    },
+    {
+      "upstream": "symfony-skills",
+      "name": "console-commands",
+      "source_url": "https://github.com/fatonh/symfony-skills/tree/ecebbb967b4ae7006694aec9b32ec071c60d84d7/skills/console-commands",
+      "files": [
+        {
+          "path": "skills/console-commands/SKILL.md",
+          "sha256": "859040a41daefeb9f67dee690a04167534fc99d5ef11b7d48e906897925e984d"
+        }
+      ],
+      "targets": [
+        "references/architecture/console-commands.md"
+      ]
+    },
+    {
+      "upstream": "symfony-skills",
+      "name": "doctrine-migrations",
+      "source_url": "https://github.com/fatonh/symfony-skills/tree/ecebbb967b4ae7006694aec9b32ec071c60d84d7/skills/doctrine-migrations",
+      "files": [
+        {
+          "path": "skills/doctrine-migrations/SKILL.md",
+          "sha256": "cf127df5ee1835c494e4ae58318f3f787af7797fee15e738473954645fc8d2b6"
+        }
+      ],
+      "targets": [
+        "references/data/migrations.md"
+      ]
+    },
+    {
+      "upstream": "symfony-skills",
+      "name": "doctrine-orm",
+      "source_url": "https://github.com/fatonh/symfony-skills/tree/ecebbb967b4ae7006694aec9b32ec071c60d84d7/skills/doctrine-orm",
+      "files": [
+        {
+          "path": "skills/doctrine-orm/SKILL.md",
+          "sha256": "245ade1c2937ec51a3c97fa24345e801005f52a01f338bcf5d5e275a73ac0d13"
+        },
+        {
+          "path": "skills/doctrine-orm/templates/Entity.php",
+          "sha256": "fe73c21334bb7b6352c5386e64646033abd3ee5492281d8546fe049a94e7a5bd"
+        },
+        {
+          "path": "skills/doctrine-orm/templates/Repository.php",
+          "sha256": "941a8bc253c03e474749a1b5700e7dafcdf1ffecbfec01bafc89011c8121a506"
+        }
+      ],
+      "targets": [
+        "references/data/doctrine-modeling.md"
+      ]
+    },
+    {
+      "upstream": "symfony-skills",
+      "name": "doctrine-query-optimization",
+      "source_url": "https://github.com/fatonh/symfony-skills/tree/ecebbb967b4ae7006694aec9b32ec071c60d84d7/skills/doctrine-query-optimization",
+      "files": [
+        {
+          "path": "skills/doctrine-query-optimization/SKILL.md",
+          "sha256": "d7d6034966d10e9c3ae1998025c187ba649cd85f5d70851fb19e5ba5c7176fbe"
+        }
+      ],
+      "targets": [
+        "references/data/doctrine-performance.md"
+      ]
+    },
+    {
+      "upstream": "symfony-skills",
+      "name": "dto-and-validation",
+      "source_url": "https://github.com/fatonh/symfony-skills/tree/ecebbb967b4ae7006694aec9b32ec071c60d84d7/skills/dto-and-validation",
+      "files": [
+        {
+          "path": "skills/dto-and-validation/SKILL.md",
+          "sha256": "e9c2b1cdccea6d81da5fa6520ad0937160506bcd9b45a28afe10138ffc3e2d9e"
+        },
+        {
+          "path": "skills/dto-and-validation/templates/RequestDto.php",
+          "sha256": "85cbd6fc3af2d93322f2b513383790fde257e94921693465bd4479eeeec2d5c9"
+        }
+      ],
+      "targets": [
+        "references/http/validation-and-forms.md",
+        "references/architecture/architecture.md"
+      ]
+    },
+    {
+      "upstream": "symfony-skills",
+      "name": "jwt-authentication",
+      "source_url": "https://github.com/fatonh/symfony-skills/tree/ecebbb967b4ae7006694aec9b32ec071c60d84d7/skills/jwt-authentication",
+      "files": [
+        {
+          "path": "skills/jwt-authentication/SKILL.md",
+          "sha256": "3039134fac7d465c3b69713ae4f68fc2be0bf8f2756c13c276ba3eee363c736b"
+        }
+      ],
+      "targets": [
+        "references/security/jwt.md"
+      ]
+    },
+    {
+      "upstream": "symfony-skills",
+      "name": "layered-architecture",
+      "source_url": "https://github.com/fatonh/symfony-skills/tree/ecebbb967b4ae7006694aec9b32ec071c60d84d7/skills/layered-architecture",
+      "files": [
+        {
+          "path": "skills/layered-architecture/SKILL.md",
+          "sha256": "496fee1bd51855bbbde7a1764b24fc8ae54b7a3c5a692cd94a9c27d8604ac204"
+        },
+        {
+          "path": "skills/layered-architecture/examples/bad_controller.php",
+          "sha256": "a800499ac6643887b24e00ff894132efa54b3f81bd94778b3a6b3fbd9eb0f30e"
+        },
+        {
+          "path": "skills/layered-architecture/examples/good_controller.php",
+          "sha256": "7b0739994943d549f61b63b795c20c90953cd1e9c25724c1c060239aafd6f613"
+        },
+        {
+          "path": "skills/layered-architecture/templates/Service.php",
+          "sha256": "1e799afd7e8bba35595b99ab02cfce973d02e19b195df4ec0178fe168a0e7c6f"
+        }
+      ],
+      "targets": [
+        "references/architecture/architecture.md",
+        "references/architecture/bundle-organization.md"
+      ]
+    },
+    {
+      "upstream": "symfony-skills",
+      "name": "messenger-async",
+      "source_url": "https://github.com/fatonh/symfony-skills/tree/ecebbb967b4ae7006694aec9b32ec071c60d84d7/skills/messenger-async",
+      "files": [
+        {
+          "path": "skills/messenger-async/SKILL.md",
+          "sha256": "d0d43211466201f5ed9fbf568e80d148ec98853a8df7ff74609dd059d1844932"
+        }
+      ],
+      "targets": [
+        "references/async/messenger.md"
+      ]
+    },
+    {
+      "upstream": "symfony-skills",
+      "name": "problem-details-rfc9457",
+      "source_url": "https://github.com/fatonh/symfony-skills/tree/ecebbb967b4ae7006694aec9b32ec071c60d84d7/skills/problem-details-rfc9457",
+      "files": [
+        {
+          "path": "skills/problem-details-rfc9457/SKILL.md",
+          "sha256": "46edaab561dde838b5d87c92fda9f703b94d34bfc10632df3ea8fb63fcac7a87"
+        }
+      ],
+      "targets": [
+        "references/http/rest-api.md"
+      ]
+    },
+    {
+      "upstream": "symfony-skills",
+      "name": "rest-controller-conventions",
+      "source_url": "https://github.com/fatonh/symfony-skills/tree/ecebbb967b4ae7006694aec9b32ec071c60d84d7/skills/rest-controller-conventions",
+      "files": [
+        {
+          "path": "skills/rest-controller-conventions/SKILL.md",
+          "sha256": "464afc9669ed8d1a6f1e3b20a3c7006fc48d35a071f43b58376a3d25813a0604"
+        }
+      ],
+      "targets": [
+        "references/http/rest-api.md"
+      ]
+    },
+    {
+      "upstream": "symfony-skills",
+      "name": "security-authentication",
+      "source_url": "https://github.com/fatonh/symfony-skills/tree/ecebbb967b4ae7006694aec9b32ec071c60d84d7/skills/security-authentication",
+      "files": [
+        {
+          "path": "skills/security-authentication/SKILL.md",
+          "sha256": "e1d26b19db323544b398de4ddea79b5eb55dc35bb1bbe707bcb67e32d1ef94d6"
+        }
+      ],
+      "targets": [
+        "references/security/authentication.md",
+        "references/security/authorization-and-rate-limiting.md"
+      ]
+    },
+    {
+      "upstream": "symfony-skills",
+      "name": "transactional-patterns",
+      "source_url": "https://github.com/fatonh/symfony-skills/tree/ecebbb967b4ae7006694aec9b32ec071c60d84d7/skills/transactional-patterns",
+      "files": [
+        {
+          "path": "skills/transactional-patterns/SKILL.md",
+          "sha256": "e044c61358dc6f617a51e4dbf4603d8694eed4741ad928d2b02f2405cc9794ea"
+        }
+      ],
+      "targets": [
+        "references/data/doctrine-modeling.md"
+      ]
+    }
+  ],
+  "primary_sources": [
+    {
+      "repository": "https://github.com/symfony/symfony-docs",
+      "revision": "8.0",
+      "commit": "eea05cbfe063b9cf99afaf303b8cad76757f43bb"
+    },
+    {
+      "repository": "https://github.com/doctrine/orm",
+      "revision": "3.5.0",
+      "commit": "6deec3655ba3e8f15280aac11e264225854d2369"
+    },
+    {
+      "repository": "https://github.com/zenstruck/foundry",
+      "revision": "2.x",
+      "commit": "8b6feea05407f2edf4970312119167cfd9828e10"
+    },
+    {
+      "repository": "https://github.com/symfony/ux-twig-component",
+      "revision": "2.x",
+      "commit": "a1f1765482f92705f074ded029d33165dcf7a05f"
+    },
+    {
+      "repository": "https://github.com/doctrine/migrations",
+      "revision": "3.9.0",
+      "paths": [
+        "docs/en/explanation/implicit-commits.rst",
+        "src/AbstractMigration.php"
+      ]
+    },
+    {
+      "repository": "https://github.com/lexik/LexikJWTAuthenticationBundle",
+      "revision": "3.x",
+      "commit": "8d614e1406ffabd36b1de5d3560e2dcc9db75e79",
+      "paths": [
+        "Resources/doc/11-invalidate-token.rst"
+      ]
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc9457.html",
+      "title": "Problem Details for HTTP APIs"
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc8725.html",
+      "title": "JWT Best Current Practices"
+    },
+    {
+      "url": "https://symfony.com/blog/new-in-symfony-8-1-console-argument-resolvers",
+      "title": "Symfony 8.1 Console argument resolvers"
+    }
+  ],
+  "upstreams": [
+    {
+      "repository": "https://github.com/dev-toolings/superpowers-symfony",
+      "commit": "459bcd0b7742e2f636374daa3552d9574527410e",
+      "license": {
+        "path": "LICENSE",
+        "sha256": "75486ea0af9309140ca6e2c401d7e67bea8f4892344e5707f6394dc5e83dfc44"
+      },
+      "id": "superpowers-symfony"
+    },
+    {
+      "id": "symfony-skills",
+      "repository": "https://github.com/fatonh/symfony-skills",
+      "commit": "ecebbb967b4ae7006694aec9b32ec071c60d84d7",
+      "license": {
+        "path": "LICENSE",
+        "sha256": "3cec829a9ec7c4ea59db3ccb98f620da48deac1ad4aa8207d0731675d3cfe8d8"
+      }
+    }
+  ],
+  "documentation": {
+    "reviewed_on": "2026-10-15",
+    "framework_line": "8.1",
+    "repositories": [
+      {
+        "id": "symfony-docs",
+        "repository": "https://github.com/symfony/symfony-docs",
+        "revision": "8.1",
+        "commit": "9162aaaa515256a0ceeab6b98e313e9d1dcb89fe",
+        "license": {
+          "path": "LICENSE.md",
+          "identifier": "CC-BY-SA-3.0",
+          "sha256": "a880a1e1b62523d5f24cb4a4e24c3747b39f1039b1ffd634a45bb24663e04a83"
+        }
+      },
+      {
+        "id": "symfony-ai",
+        "repository": "https://github.com/symfony/ai",
+        "revision": "main",
+        "commit": "5ad77d9418152e61e5b2b2bbb29d070a07fc2a67",
+        "license": {
+          "path": "LICENSE",
+          "identifier": "MIT",
+          "sha256": "56e762e45c7d6d7873c19a5dac018ca43f5f9a881f8cd9100d1d08d0182b9544"
+        }
+      }
+    ],
+    "pages": [
+      {
+        "id": "routing",
+        "repository": "symfony-docs",
+        "path": "routing.rst",
+        "sha256": "e11d64cf6912d87c56900438972f56ec0c3f7baae4a41da2f2b03fc9e4f7d42f",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/routing.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/routing.html"
+        ],
+        "targets": [
+          "references/http/routing-and-kernel.md"
+        ]
+      },
+      {
+        "id": "controller",
+        "repository": "symfony-docs",
+        "path": "controller.rst",
+        "sha256": "6cb0b5184009bf2612857a09218a8f08025a3f083c8420d45c0f845c2654f95a",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/controller.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/controller.html"
+        ],
+        "targets": [
+          "references/http/routing-and-kernel.md",
+          "references/http/validation-and-forms.md"
+        ]
+      },
+      {
+        "id": "components/http_kernel",
+        "repository": "symfony-docs",
+        "path": "components/http_kernel.rst",
+        "sha256": "871d818adf0fb30257b0901c79e074cae13213063ca0168c6c45160470039f9c",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/components/http_kernel.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/components/http_kernel.html"
+        ],
+        "targets": [
+          "references/http/routing-and-kernel.md"
+        ]
+      },
+      {
+        "id": "reference/configuration/kernel",
+        "repository": "symfony-docs",
+        "path": "reference/configuration/kernel.rst",
+        "sha256": "db70ceeca4b21498fa0578c523f694b1218f1194a31f6e7a4adf8209e491693c",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/reference/configuration/kernel.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/reference/configuration/kernel.html"
+        ],
+        "targets": [
+          "references/architecture/container-and-events.md",
+          "references/workflow/configuration.md"
+        ]
+      },
+      {
+        "id": "service_container",
+        "repository": "symfony-docs",
+        "path": "service_container.rst",
+        "sha256": "a5029b84ebceb73425b419b044e8270cf245d13d4c8c0651ab2140a389d9eac9",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/service_container.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/service_container.html"
+        ],
+        "targets": [
+          "references/architecture/container-and-events.md"
+        ]
+      },
+      {
+        "id": "event_dispatcher",
+        "repository": "symfony-docs",
+        "path": "event_dispatcher.rst",
+        "sha256": "36a7fc134bb265a49c9c638d32542da566e1694cc8ad5612d30ff497a429ede0",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/event_dispatcher.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/event_dispatcher.html"
+        ],
+        "targets": [
+          "references/architecture/container-and-events.md"
+        ]
+      },
+      {
+        "id": "configuration",
+        "repository": "symfony-docs",
+        "path": "configuration.rst",
+        "sha256": "99e7a74189f09a9949e582f6c0072e390e1d6f88e9af7e79c578181cd7fe8afc",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/configuration.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/configuration.html"
+        ],
+        "targets": [
+          "references/workflow/configuration.md"
+        ]
+      },
+      {
+        "id": "templates",
+        "repository": "symfony-docs",
+        "path": "templates.rst",
+        "sha256": "197f0e0158955aee11c462f01b877b973b1e73aa3d945629a46339b2a70e336a",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/templates.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/templates.html"
+        ],
+        "targets": [
+          "references/presentation/twig-and-translation.md",
+          "references/presentation/twig-components.md"
+        ]
+      },
+      {
+        "id": "doctrine",
+        "repository": "symfony-docs",
+        "path": "doctrine.rst",
+        "sha256": "e0ec9f61cd81e139b8bbd686be72b6466e1b4b26a0178cf66aecb2a01e196a24",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/doctrine.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/doctrine.html"
+        ],
+        "targets": [
+          "references/data/doctrine-modeling.md",
+          "references/data/doctrine-performance.md",
+          "references/data/migrations.md"
+        ]
+      },
+      {
+        "id": "forms",
+        "repository": "symfony-docs",
+        "path": "forms.rst",
+        "sha256": "fd4cc3538788ca5f5c90cfb08ab22b5ef60d40a51ff3947c59b52e35b4e0dc61",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/forms.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/forms.html"
+        ],
+        "targets": [
+          "references/http/validation-and-forms.md"
+        ]
+      },
+      {
+        "id": "validation",
+        "repository": "symfony-docs",
+        "path": "validation.rst",
+        "sha256": "7b6e4bc11347b98eca4164f186867372ca7740d44e1b2231464bed48b37ddeae",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/validation.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/validation.html"
+        ],
+        "targets": [
+          "references/http/validation-and-forms.md"
+        ]
+      },
+      {
+        "id": "testing",
+        "repository": "symfony-docs",
+        "path": "testing.rst",
+        "sha256": "a30802f43ac1a7d5aeaa08452dbeb14d777644759a04bbfd5b38144392106254",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/testing.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/testing.html"
+        ],
+        "targets": [
+          "references/workflow/testing.md"
+        ]
+      },
+      {
+        "id": "session",
+        "repository": "symfony-docs",
+        "path": "session.rst",
+        "sha256": "193d06bf733d35cf33e554c5cec8ae8f6ef07d37bc604ad3e0ae8dc5a1d75234",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/session.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/session.html"
+        ],
+        "targets": [
+          "references/http/sessions.md"
+        ]
+      },
+      {
+        "id": "cache",
+        "repository": "symfony-docs",
+        "path": "cache.rst",
+        "sha256": "96e00f659838a6cbdb9feca61083c96cb16e436e413f23a06e5864d643b89e5f",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/cache.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/cache.html"
+        ],
+        "targets": [
+          "references/data/cache.md"
+        ]
+      },
+      {
+        "id": "logging",
+        "repository": "symfony-docs",
+        "path": "logging.rst",
+        "sha256": "9e2d19940781b082d3e70414344f5123428983f31daed4519d1b1375c0868d93",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/logging.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/logging.html"
+        ],
+        "targets": [
+          "references/workflow/logging-and-errors.md"
+        ]
+      },
+      {
+        "id": "controller/error_pages",
+        "repository": "symfony-docs",
+        "path": "controller/error_pages.rst",
+        "sha256": "4218cea2611f8395ddaa34129e6e76846870470017715a91678b7393aff73540",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/controller/error_pages.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/controller/error_pages.html"
+        ],
+        "targets": [
+          "references/workflow/logging-and-errors.md",
+          "references/http/rest-api.md"
+        ]
+      },
+      {
+        "id": "console",
+        "repository": "symfony-docs",
+        "path": "console.rst",
+        "sha256": "a61def5cb46f8e3fc164af28412a6efbf51fa344f478ec1e8f51700d4bbcec53",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/console.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/console.html"
+        ],
+        "targets": [
+          "references/architecture/console-commands.md"
+        ]
+      },
+      {
+        "id": "mailer",
+        "repository": "symfony-docs",
+        "path": "mailer.rst",
+        "sha256": "164ab7530ec4ac5569d9800c89e0b61efe402182d4a38932f06853142c6a1fcc",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/mailer.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/mailer.html"
+        ],
+        "targets": [
+          "references/async/mailer-and-notifier.md"
+        ]
+      },
+      {
+        "id": "notifier",
+        "repository": "symfony-docs",
+        "path": "notifier.rst",
+        "sha256": "ee216ea016b31494d0941a06286e80bc1aae9815c0a78aa8f22bf0c97144598c",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/notifier.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/notifier.html"
+        ],
+        "targets": [
+          "references/async/mailer-and-notifier.md"
+        ]
+      },
+      {
+        "id": "messenger",
+        "repository": "symfony-docs",
+        "path": "messenger.rst",
+        "sha256": "6ca59a07cebfa7595cbaca33a450aab3af911211f30e81210d2c46cbad58a645",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/messenger.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/messenger.html"
+        ],
+        "targets": [
+          "references/async/messenger.md"
+        ]
+      },
+      {
+        "id": "scheduler",
+        "repository": "symfony-docs",
+        "path": "scheduler.rst",
+        "sha256": "fb93144e461ff59eb9b0e4bf2572f82b333df957375552728c184d90a7290de1",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/scheduler.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/scheduler.html"
+        ],
+        "targets": [
+          "references/async/scheduler.md"
+        ]
+      },
+      {
+        "id": "serializer",
+        "repository": "symfony-docs",
+        "path": "serializer.rst",
+        "sha256": "2675c8ae95d25e18155720a4ce87bd14d51fd8d333428911e980e471ab437a2e",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/serializer.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/serializer.html"
+        ],
+        "targets": [
+          "references/http/serializer.md"
+        ]
+      },
+      {
+        "id": "translation",
+        "repository": "symfony-docs",
+        "path": "translation.rst",
+        "sha256": "ba598e5b1e4664927276a4cf8033fadbf5b80286c0ea32846d228f4c83b9da7c",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/translation.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/translation.html"
+        ],
+        "targets": [
+          "references/presentation/twig-and-translation.md"
+        ]
+      },
+      {
+        "id": "security",
+        "repository": "symfony-docs",
+        "path": "security.rst",
+        "sha256": "33279ea8e41181902b05c1a2e6864bc4d6c7b25933fb0af9c8883552cfb42b3b",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/security.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/security.html",
+          "https://symfony.com/doc/current/security.html#the-user",
+          "https://symfony.com/doc/current/security.html#the-firewall",
+          "https://symfony.com/doc/current/security.html#access-control-authorization"
+        ],
+        "targets": [
+          "references/security/authentication.md",
+          "references/security/authorization-and-rate-limiting.md"
+        ]
+      },
+      {
+        "id": "security/passwords",
+        "repository": "symfony-docs",
+        "path": "security/passwords.rst",
+        "sha256": "d0740e6590d643236c83692590d066f11d99131deac3d4abe067fa5629dad60c",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/security/passwords.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/security/passwords.html"
+        ],
+        "targets": [
+          "references/security/authentication.md"
+        ]
+      },
+      {
+        "id": "security/csrf",
+        "repository": "symfony-docs",
+        "path": "security/csrf.rst",
+        "sha256": "238379af67a55a3870b34cf7f22e21ba2e6621d16406c43bc3ab45055acc67c7",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/security/csrf.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/security/csrf.html"
+        ],
+        "targets": [
+          "references/security/authentication.md",
+          "references/http/validation-and-forms.md"
+        ]
+      },
+      {
+        "id": "http_client",
+        "repository": "symfony-docs",
+        "path": "http_client.rst",
+        "sha256": "8f735e7724a81ca81bf61e0d3c66b5c0471feffb4e80a6de985edfc1ab7011b3",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/http_client.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/http_client.html"
+        ],
+        "targets": [
+          "references/http/http-client-and-webhooks.md"
+        ]
+      },
+      {
+        "id": "webhook",
+        "repository": "symfony-docs",
+        "path": "webhook.rst",
+        "sha256": "37b350dc9010d418cf5266995c8a01e6ba1d11c46a7ed97348a61043da48a7a8",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/webhook.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/webhook.html"
+        ],
+        "targets": [
+          "references/http/http-client-and-webhooks.md"
+        ]
+      },
+      {
+        "id": "components/filesystem",
+        "repository": "symfony-docs",
+        "path": "components/filesystem.rst",
+        "sha256": "8c7168637c53198c31c9606364297782df1e8a590cff2fadbac0e9b5a6d1eac1",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/components/filesystem.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/components/filesystem.html"
+        ],
+        "targets": [
+          "references/architecture/framework-utilities.md"
+        ]
+      },
+      {
+        "id": "components/uid",
+        "repository": "symfony-docs",
+        "path": "components/uid.rst",
+        "sha256": "552819ebb483a32a95fb7e2b64305e9fa7a3166f2fdc5d6de32fea08192e832f",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/components/uid.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/components/uid.html"
+        ],
+        "targets": [
+          "references/architecture/framework-utilities.md"
+        ]
+      },
+      {
+        "id": "components/yaml",
+        "repository": "symfony-docs",
+        "path": "components/yaml.rst",
+        "sha256": "21b52b373206572cbb3af3843388c307b6feb2ac78e88046ef1267f339c03db9",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/components/yaml.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/components/yaml.html"
+        ],
+        "targets": [
+          "references/architecture/framework-utilities.md"
+        ]
+      },
+      {
+        "id": "expression_language",
+        "repository": "symfony-docs",
+        "path": "expression_language.rst",
+        "sha256": "ce14daaa98887faefa343c5e9b3fda6cf0422e7db4719f870e6c199c6f852bd1",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/expression_language.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/expression_language.html"
+        ],
+        "targets": [
+          "references/architecture/framework-utilities.md"
+        ]
+      },
+      {
+        "id": "lock",
+        "repository": "symfony-docs",
+        "path": "lock.rst",
+        "sha256": "24ca660540904980f463ccbc697119337887c92008ba18a8232ca9c28e539836",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/lock.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/lock.html"
+        ],
+        "targets": [
+          "references/architecture/workflow-and-locks.md",
+          "references/async/scheduler.md"
+        ]
+      },
+      {
+        "id": "workflow",
+        "repository": "symfony-docs",
+        "path": "workflow.rst",
+        "sha256": "f33d02cd411bb94c735387d1b66613e77cf8245b28550f8f24c4a84568b8fb69",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/workflow.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/workflow.html"
+        ],
+        "targets": [
+          "references/architecture/workflow-and-locks.md"
+        ]
+      },
+      {
+        "id": "deployment",
+        "repository": "symfony-docs",
+        "path": "deployment.rst",
+        "sha256": "56db83481d607d763dcac2ae1671c91083da16fb3f45aaaedf550b001702af85",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/deployment.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/deployment.html"
+        ],
+        "targets": [
+          "references/workflow/deployment-and-performance.md"
+        ]
+      },
+      {
+        "id": "performance",
+        "repository": "symfony-docs",
+        "path": "performance.rst",
+        "sha256": "e3bb9487c6234106731cae23b7c896336e0301ec7743f7b630a1e072b1771d39",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/performance.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/performance.html"
+        ],
+        "targets": [
+          "references/workflow/deployment-and-performance.md"
+        ]
+      },
+      {
+        "id": "http_cache",
+        "repository": "symfony-docs",
+        "path": "http_cache.rst",
+        "sha256": "a4c348e6454aed43ca4cb092fa6b1f5ffd5d8206f30e326cbf6caca4e7c8c62d",
+        "source_url": "https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/http_cache.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/http_cache.html"
+        ],
+        "targets": [
+          "references/workflow/deployment-and-performance.md",
+          "references/data/cache.md",
+          "references/http/sessions.md"
+        ]
+      },
+      {
+        "id": "ai/components/mate",
+        "repository": "symfony-ai",
+        "path": "docs/components/mate.rst",
+        "sha256": "4ee6da592675599147945b93f04fea04ec14bed7d9ee108346503a33a8c810ea",
+        "source_url": "https://github.com/symfony/ai/blob/5ad77d9418152e61e5b2b2bbb29d070a07fc2a67/docs/components/mate.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/ai/components/mate.html"
+        ],
+        "targets": [
+          "references/workflow/ai-mate.md"
+        ]
+      },
+      {
+        "id": "ai/bundles/mcp-bundle",
+        "repository": "symfony-ai",
+        "path": "docs/bundles/mcp-bundle.rst",
+        "sha256": "ce838f78caeb2334abe0c040e02b6dd4f92b8bcce8f34953ce23dc71e3b4f36a",
+        "source_url": "https://github.com/symfony/ai/blob/5ad77d9418152e61e5b2b2bbb29d070a07fc2a67/docs/bundles/mcp-bundle.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/ai/bundles/mcp-bundle.html"
+        ],
+        "targets": [
+          "references/architecture/ai-integration.md"
+        ]
+      },
+      {
+        "id": "ai/bundles/ai-bundle",
+        "repository": "symfony-ai",
+        "path": "docs/bundles/ai-bundle.rst",
+        "sha256": "7d51433f72537b0c4aa804b6b7f0e15db3a5d65c9c677b997349e0a793c229ee",
+        "source_url": "https://github.com/symfony/ai/blob/5ad77d9418152e61e5b2b2bbb29d070a07fc2a67/docs/bundles/ai-bundle.rst",
+        "requested_urls": [
+          "https://symfony.com/doc/current/ai/bundles/ai-bundle.html"
+        ],
+        "targets": [
+          "references/architecture/ai-integration.md"
+        ]
+      }
+    ]
+  }
+}
