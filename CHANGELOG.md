@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Добавлен repository-local `symfony-skill-maintainer`: сопровождение репозитория, обновление provenance и лицензий, проверки и выпуск релизов с проверкой опубликованных assets.
+- Добавлены canonical `.agents/skills/`, относительные aliases для Codex/Claude, маршрутизация в AGENTS.md и проверки discovery/ссылок в существующей unittest suite. Состав и версия распространяемого пакета не изменены.
+
 ## 0.1.0 — локальная подготовка, дополнено 2026-10-15
 
 - Единый symfony-best-practices для Symfony 8.x с официальной проверкой 8.1 и оговорками для 8.0 / PHP 8.4+.
