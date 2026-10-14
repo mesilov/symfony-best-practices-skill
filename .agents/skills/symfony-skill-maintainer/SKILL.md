@@ -1,6 +1,6 @@
 ---
 name: symfony-skill-maintainer
-description: Use when maintaining the symfony-best-practices-skill repository, refreshing donor or official-documentation provenance, changing package checks, or preparing and publishing its releases.
+description: Use when maintaining the symfony-best-practices-skill repository, refreshing donor or official-documentation provenance, changing package checks, preparing pull/merge requests, or handling its releases.
 license: MIT
 ---
 
@@ -12,7 +12,7 @@ Maintain this repository's **skill package**, using its actual scripts, source m
 
 Run `pwd`, `git status --short --branch`, `git worktree list` and `git remote -v`. Work from the repository root; inspect `AGENTS.md`, `README.md`, `VERSION`, `CHANGELOG.md`, `scripts/`, `tests/` and `.github/workflows/validate.yml` for the requested operation. Refresh remote state before delivery decisions.
 
-Preserve unrelated changes and use a suitable isolated worktree. Choose its base from the tree that actually contains the package; do not assume the default branch contains unfinished work. Before integrating an accumulated branch, enumerate its full diff and ensure that scope is authorized.
+Preserve unrelated changes. For new work, start from fresh `origin/main` on a `codex/` branch, using an isolated worktree when needed. When continuing, reviewing or publishing existing work, retain its branch/worktree and intended commits. Follow an explicitly requested alternative base; inspect the complete diff against the refreshed actual target before integration.
 
 ## Package boundaries
 
@@ -25,6 +25,10 @@ Preserve unrelated changes and use a suitable isolated worktree. Choose its base
 | `docs/` | Review decisions and dated verification evidence |
 
 Keep agent instructions in English and preserve the current README's language and style. Keep the product entrypoint within the validator's word limit and load detail through thematic references. The maintainer skill is repository-only; adding it does not change the product version or archive contents.
+
+## Changelog gate before every PR
+
+Before opening any PR/MR, including drafts and documentation changes, commit a meaningful `CHANGELOG.md` entry for the actual change in the same branch. PR/MR mean GitHub pull requests here. Inspect its substantive diff against the refreshed target; recheck when scope or target changes. Follow the detailed gate in [checks](references/checks.md).
 
 ## Read the relevant procedure
 

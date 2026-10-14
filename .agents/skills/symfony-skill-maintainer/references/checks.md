@@ -2,6 +2,14 @@
 
 Run from the repository root. This is a Python-backed documentation package, not a Symfony runtime application. Read current scripts and CI before using these commands; `--help` documents supported flags.
 
+## Changelog gate before every PR
+
+Before opening any PR/MR, commit a meaningful `CHANGELOG.md` update in the same branch. This applies to drafts and to documentation, tests, skills, build tools, fixes and small changes. Describe the actual change and its effect under `Unreleased`, following the file's format. For a release, move accumulated entries into the version section rather than inventing a change.
+
+Refresh the actual target. Inspect both changelog text and its substantive target-to-head diff. An entry already in the target, unrelated history, whitespace, deletion alone or a promise to add notes later does not satisfy the gate. Add a truthful entry and commit it before opening; if the change cannot be described truthfully, stop PR creation and explain the unresolved point. Avoid filler and duplicated history. Recheck after scope or target changes.
+
+When opening a PR is authorized, push the existing requested branch and target `main` unless another base was requested. Read back its base, head SHA, changed scope, changelog and CI; PR creation does not authorize merge, tags or release publication.
+
 ## Environment and standard gates
 
 Python 3.11+ and the pinned `requirements-dev.txt` dependency are used by CI. Reuse an existing suitable environment or create a local one:

@@ -51,6 +51,14 @@ ed3ecbc8029664e43be7704d3286782bd051bf2996a31b24dc9bdb65421b0d66  symfony-best-p
 
 With-skill агент использовал все три процедуры и подтвердил соответствие raw scripts/tests. Он обнаружил практический пробел: архивный unittest проверяет собственные builds, а отдельной команды проверки выбранного candidate/download directory не было. В checks добавлена read-only команда, releases ссылается на неё. Focused статическое ревью не обнаружило ошибки; runtime PASS/отклонение corrupt ZIP подтверждены отдельными локальными запусками автора.
 
-## Границы
+## Границы первичного создания
 
 Для этой maintainer-ветки не выполнялись push, PR, remote CI, merge, tag или публикация GitHub Release. Локальный `origin/main` наблюдался после обновления другой работой; live GitHub release state в этой задаче не проверялся. Product VERSION остаётся 0.1.0. Проверка существующих source pins не является обновлением источников до upstream HEAD. Symfony runtime и provider operations не запускались.
+
+## Подготовка merge PR #3 после обновления main
+
+После публикации этой ветки PR #3 открыт в main; обе проверки CI на первоначальном head `9e76b73` завершились SUCCESS. До порученного merge в main вошёл PR #2 (`075d84a`) с тем же canonical skill, changelog gate и правилом сохранения существующих feature branches. Live readback PR #3 показал конфликт; в существующую ветку включён текущий main без переписывания опубликованной истории.
+
+Разрешены конфликты в maintainer SKILL.md, AGENTS.md и CHANGELOG.md. Сохранены требования PR #2: содержательная committed changelog entry до любого PR, включая drafts/docs; проверка actual target-to-head diff; сохранение branch/worktree при продолжении существующей работы. Детали gate вынесены в checks.md и адресно загружаются из entrypoint. Existing changelog history и M1–M5 scenarios сохранены. Новый substantive entry описывает расширение procedures, aliases и tests.
+
+Локальная повторная проверка объединённого дерева: 16/16 unittest tests, product validator, quick_validate maintainer, build и whitespace checks прошли. Entrypoint body — 398 слов. Независимое read-only ревью разрешения конфликтов не нашло blocking defects. Распространяемый продукт, source pins и VERSION не изменены. Этот раздел фиксирует подготовку: merge main и post-merge CI подтверждаются последующим live readback, а не исходным CI ветки.

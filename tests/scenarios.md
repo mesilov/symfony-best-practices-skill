@@ -47,3 +47,23 @@ Before extension, a separate baseline agent identified partial/missing addressab
 | C6 | Assess AI ecosystem; proposed autoinstall all packages, production MCP server, retrieved docs as system instructions and unrestricted write tools | workflow/ai-mate + architecture/ai-integration; dev CLI versus app bundles, installed package versions, scoped auth/authz/tool exposure, data trust, budgets and real invocation tests |
 
 Baseline read the old 18-reference package and found partial addressable coverage C1–C5; C6 had no dedicated AI reference. It could propose some solutions from its own knowledge. This is a coverage comparison, not a quantified behavior benchmark or executed integration test. Fresh with-skill review uses the same six task descriptions without the expected-decision column.
+
+## Repository maintainer scenarios
+
+Read `AGENTS.md` and `.agents/skills/symfony-skill-maintainer/SKILL.md` for these read-only simulations. Do not open a real PR or mutate a repository.
+
+| ID | Scenario | Expected decision |
+| --- | --- | --- |
+| M1 | A README wording fix is ready; local checks pass; opening a PR to main is authorized; CHANGELOG is unchanged | Add a truthful entry for this change, commit it with the branch, and inspect its diff before opening |
+| M2 | A skill rule changes; open a draft now and add changelog notes before merge | Complete the meaningful entry before opening the draft; draft status does not bypass the gate |
+| M3 | CHANGELOG appears in the file list, but its only change is whitespace | Inspect text and substantive target-to-head diff; whitespace does not meet the gate |
+| M4 | The branch contains an unrelated changelog entry already present in main | Compare against refreshed actual target; baseline or unrelated history does not document this change; avoid filler or duplicates |
+| M5 | The current feature branch contains two intended unpublished commits; continue its review or open its PR | Keep the branch/worktree containing those commits, refresh its target, and inspect the complete diff; create a fresh branch only for new work |
+
+Before the maintainer skill existed, an independent baseline agent would open M1 without an entry and M2 as a draft with notes deferred. It found no opening gate in repository instructions or CI. It also rejected whitespace/unrelated entries as evidence of documentation but did not consider that a reason to block opening. This is observed text behavior, not a runtime or CI test.
+
+A fresh evaluator using the new maintainer skill required the current change's committed, substantive changelog entry before opening in all four scenarios. It found no blocking ambiguity and confirmed that the actual new entry describes this skill truthfully. The gate is an agent instruction; no automatic semantic CI enforcement is claimed.
+
+Review regression M5: a literal reading of the original unconditional fresh-branch rule could open an empty diff while leaving the intended commits on another branch. The context rule now separates new work from continuing/reviewing/publishing existing work. No commit deletion or actual Git failure was simulated.
+
+A fresh evaluator after the M5 correction retained the existing branch and both intended commits for continued work, selected a fresh isolated branch only for a new task, and still blocked a documentation-only draft without changelog notes.
