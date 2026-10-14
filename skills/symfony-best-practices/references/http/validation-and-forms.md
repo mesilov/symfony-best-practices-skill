@@ -31,3 +31,11 @@ Do not persist a plaintext password from a registration DTO/form. Hash through t
 Test nested/type failures, accepted formats, groups, missing and explicit null, unauthorized fields, custom resolvers, valid/invalid submitted forms and transformation errors. Verify domain invariants separately and concurrent uniqueness on a real DB. Input validation must not substitute for the authorization checks in [Authorization](../security/authorization-and-rate-limiting.md).
 
 Primary guidance: [controller mapping](https://symfony.com/doc/8.0/controller.html), [Serializer](https://symfony.com/doc/8.0/serializer.html), [Validator](https://symfony.com/doc/8.0/validation.html), [forms](https://symfony.com/doc/8.0/forms.html).
+
+## Form submission and standalone validation
+
+Choose `data_class`, mapped/unmapped fields, options and transformers intentionally. Partial submission (`submit(..., clearMissing: false)`) changes which fields are submitted/validated; test omitted fields, clearing and full-object invariants rather than assuming PUT/PATCH equivalence. File upload handling requires content/size checks, safe generated storage names and authorized paths; never trust the client filename as a destination.
+
+Validator is usable outside forms/controllers: explicitly validate input/application contracts in CLI and message paths when required. Use `Valid` for intended nested validation, and groups/sequences for deliberate lifecycle differences. Validation attributes on an object do not run automatically everywhere. See [Serializer](serializer.md) for type/shape and [sessions](sessions.md) for stateful CSRF/cache effects.
+
+Reviewed sources: [forms](https://symfony.com/doc/8.1/forms.html), [validation](https://symfony.com/doc/8.1/validation.html).

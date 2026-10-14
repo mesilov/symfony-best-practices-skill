@@ -25,3 +25,7 @@ Use `debug:scheduler` and `debug:messenger` through the verified runner to inspe
 Test next-run times/timezone, empty schedule, downtime catch-up choice, repeated invocation, multi-consumer coordination and overlap of async execution where applicable. Use controllable clocks in tests rather than waiting for wall-clock cron. Monitor job start, completion, duration, errors and stale/abandoned work; schedule emission and business completion are different evidence.
 
 Primary guidance: [Symfony 8.0 Scheduler](https://symfony.com/doc/8.0/scheduler.html), [Lock](https://symfony.com/doc/8.0/lock.html), [Clock](https://symfony.com/doc/8.0/components/clock.html).
+
+## Workflow and shared-resource coordination
+
+Use [Workflow/Lock](../architecture/workflow-and-locks.md) for persisted transition concurrency, shared-store selection, lease expiry/refresh and lost ownership. A schedule lock does not prove the emitted job finished or that a business transition was reserved. Reviewed source: [Symfony 8.1 Scheduler](https://symfony.com/doc/8.1/scheduler.html).

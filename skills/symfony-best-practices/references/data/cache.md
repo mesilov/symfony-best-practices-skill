@@ -27,3 +27,9 @@ Test cache miss/hit, expiration, intended key/tag invalidation and cross-user/te
 Use pool inspection through the project runner. `cache:pool:clear` and `cache:clear` mutate state and can cause cold starts or reset limiter/schedule state: scope them to the requested environment/operation. Do not clear every shared pool as routine diagnosis.
 
 Primary guidance: [Symfony Cache and invalidation](https://symfony.com/doc/8.0/cache.html), [HTTP cache](https://symfony.com/doc/8.0/http_cache.html).
+
+## Session and reverse-proxy boundaries
+
+Session reads, flashes and stateful CSRF can turn otherwise anonymous-looking pages private. Keep that safeguard for personalized output; inspect [sessions](../http/sessions.md) before changing it. Test freshness/304/Vary and actual proxy behavior with [deployment and HTTP caching](../workflow/deployment-and-performance.md).
+
+Reviewed current-line sources: [Cache](https://symfony.com/doc/8.1/cache.html), [HTTP cache](https://symfony.com/doc/8.1/http_cache.html).

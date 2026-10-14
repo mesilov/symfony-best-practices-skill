@@ -1,6 +1,6 @@
 ---
 name: symfony-best-practices
-description: Use when implementing, debugging, refactoring, or reviewing Symfony 8.x applications, including controllers and REST errors, services/bundles, console commands, configuration, Doctrine, Messenger/Scheduler, forms, authentication/JWT, authorization, cache, Twig, and PHPUnit tests.
+description: Use when implementing, debugging, refactoring, or reviewing Symfony 8.x applications, including HTTP/routing, DI/events, Doctrine, async work, security, tests, deployment, and optional Symfony AI/MCP integration.
 license: MIT
 metadata:
   version: "0.1.0"
@@ -8,7 +8,7 @@ metadata:
 
 # Symfony Best Practices
 
-Use the project's conventions and installed APIs to make the smallest change that satisfies the requested behavior. Target Symfony **8.x**; the reference baseline is **8.0 / PHP 8.4+**. Check the actual minor versions before using newer features.
+Use the project's conventions and installed APIs to make the smallest change that satisfies the requested behavior. Target Symfony **8.x**; the official documentation review is **8.1 / PHP 8.4+**, with explicit 8.0 compatibility notes. Check installed minors; Symfony AI/bundle versions are independent.
 
 ## Establish context
 
@@ -22,13 +22,13 @@ Read only relevant references; combine them when a change crosses boundaries.
 
 | Group | Read for the current task |
 | --- | --- |
-| Workflow | [Runtime and quality](references/workflow/workflow-and-quality.md), [configuration](references/workflow/configuration.md), [tests](references/workflow/testing.md) |
-| Architecture | [Services and domain](references/architecture/architecture.md), [modules/bundles](references/architecture/bundle-organization.md), [console](references/architecture/console-commands.md) |
-| HTTP/API | [REST and RFC 9457](references/http/rest-api.md), [DTOs/forms/validation](references/http/validation-and-forms.md) |
+| Workflow | [Runtime/quality](references/workflow/workflow-and-quality.md), [configuration](references/workflow/configuration.md), [tests](references/workflow/testing.md), [logs/errors](references/workflow/logging-and-errors.md), [deployment/performance](references/workflow/deployment-and-performance.md), [AI Mate](references/workflow/ai-mate.md) |
+| Architecture | [Services/domain](references/architecture/architecture.md), [bundles](references/architecture/bundle-organization.md), [console](references/architecture/console-commands.md), [DI/events](references/architecture/container-and-events.md), [Workflow/Lock](references/architecture/workflow-and-locks.md), [utilities](references/architecture/framework-utilities.md), [AI/MCP](references/architecture/ai-integration.md) |
+| HTTP/API | [Routing/kernel](references/http/routing-and-kernel.md), [REST/errors](references/http/rest-api.md), [DTOs/forms/validation](references/http/validation-and-forms.md), [sessions](references/http/sessions.md), [Serializer](references/http/serializer.md), [HttpClient/webhooks](references/http/http-client-and-webhooks.md) |
 | Data | [ORM/transactions](references/data/doctrine-modeling.md), [queries/batches](references/data/doctrine-performance.md), [migrations](references/data/migrations.md), [cache](references/data/cache.md) |
-| Background work | [Messenger](references/async/messenger.md), [Scheduler](references/async/scheduler.md) |
+| Background work | [Messenger](references/async/messenger.md), [Scheduler](references/async/scheduler.md), [Mailer/Notifier](references/async/mailer-and-notifier.md) |
 | Security | [Authentication](references/security/authentication.md), [JWT](references/security/jwt.md), [authorization/rate limits](references/security/authorization-and-rate-limiting.md) |
-| Presentation | [Twig components](references/presentation/twig-components.md) |
+| Presentation | [Twig/translation](references/presentation/twig-and-translation.md), [Twig components](references/presentation/twig-components.md) |
 
 ## Apply and verify
 
@@ -40,4 +40,4 @@ Inspection does not imply permission to mutate shared state: identify the enviro
 
 Report what changed, the selected versions/runner, commands and results, and checks that were skipped or blocked. Local checks, CI, deployment, and live integration are separate evidence.
 
-[Sources and adaptation decisions](SOURCES.md) record all 42 donors from two pinned repositories, corrections, and license provenance.
+[Sources and adaptation decisions](SOURCES.md) record 42 donors and 40 official documentation pages (43 requested URLs), pinned revisions, corrections, and licenses.

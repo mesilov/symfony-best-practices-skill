@@ -1,18 +1,18 @@
 # Symfony Best Practices Skill
 
-Версия **0.1.0** — единый эталонный Agent Skill для работы с **Symfony 8.x** в наших проектах. Проверенная базовая линия: Symfony 8.0 / PHP 8.4+. Конкретные minor-версии, пакеты и команды всегда определяются по проекту.
+Версия **0.1.0** — единый эталонный Agent Skill для работы с **Symfony 8.x** в наших проектах. Официальная документация сверена на 2026-10-15 по линии Symfony 8.1 / PHP 8.4+; важные различия с 8.0 отмечены отдельно. Конкретные minor-версии, пакеты и команды всегда определяются по проекту.
 
-[SKILL.md](skills/symfony-best-practices/SKILL.md) — короткий вход; 18 справочников покрывают все 42 выбранных донорских скилла из двух репозиториев и физически разложены по семи смысловым группам.
+[SKILL.md](skills/symfony-best-practices/SKILL.md) — короткий вход; 31 справочник покрывает 42 выбранных донорских скилла из двух репозиториев и 40 страниц официальной документации (43 исходные ссылки) и физически разложены по семи смысловым группам.
 
 | Группа | Темы |
 | --- | --- |
-| workflow | Runtime, качество, конфигурация, тесты и fixtures |
-| architecture | Слои/DI/DDD/CQRS, модули/bundles, консольные команды |
-| http | REST, RFC 9457, DTO/validation/forms |
+| workflow | Runtime, качество, конфигурация, тесты, логи/ошибки, deployment/performance, AI Mate |
+| architecture | Слои/DDD/CQRS, bundles, Console, DI/events/Kernel, Workflow/Lock, utilities, AI/MCP |
+| http | Routing/HttpKernel, REST/RFC 9457, DTO/forms/validation, sessions, Serializer, HttpClient/webhooks |
 | data | Doctrine ORM/транзакции, запросы/batches, миграции, кеш |
-| async | Messenger и Scheduler |
+| async | Messenger, Scheduler, Mailer/Notifier |
 | security | Authentication, JWT, authorization/voters/rate limiting |
-| presentation | Twig/UX components |
+| presentation | Twig, Translation, UX components |
 
 ## Установка
 
@@ -43,7 +43,9 @@
 
 Доноры: [dev-toolings/superpowers-symfony](https://github.com/dev-toolings/superpowers-symfony), revision `459bcd0b7742e2f636374daa3552d9574527410e` — 29 скиллов; [fatonh/symfony-skills](https://github.com/fatonh/symfony-skills), revision `ecebbb967b4ae7006694aec9b32ec071c60d84d7` — еще 13.
 
-[Карта 42 доноров и изменений](skills/symfony-best-practices/SOURCES.md), [77 хешей источников](skills/symfony-best-practices/sources.json), [обзор исправлений](docs/source-review.md). Опечатка `symfony-schedu` разрешена в `symfony-scheduler`. Полные MIT-лицензии обоих доноров входят в пакет, авторская лицензия репозитория сохранена.
+[Карта 42 доноров и изменений](skills/symfony-best-practices/SOURCES.md), [77 донорских и 40 документальных source hashes](skills/symfony-best-practices/sources.json), [обзор исправлений](docs/source-review.md). Опечатка `symfony-schedu` разрешена в `symfony-scheduler`. Полные MIT-лицензии обоих доноров входят в пакет, авторская лицензия репозитория сохранена.
+
+Официальные источники: [Symfony Docs, ветка 8.1](https://github.com/symfony/symfony-docs/tree/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe) и [Symfony AI](https://github.com/symfony/ai/tree/5ad77d9418152e61e5b2b2bbb29d070a07fc2a67). [Карта всех 40 страниц и ключевых дополнений](docs/official-documentation-review-2026-10-15.md). Ссылки `current` подвижны: пакет хранит проверенные revisions/hashes, а агент сверяет installed API. Mate, MCP Bundle и AI Bundle имеют собственные версии и подключаются по задаче.
 
 ## Разработка и сборка
 
@@ -57,12 +59,14 @@ python3 -m venv .venv
 .venv/bin/python scripts/build_release.py
 ```
 
-На Windows используйте `.venv\Scripts\python.exe`. Для сверки всех фактических source hashes передайте оба checkout на закрепленных SHA:
+На Windows используйте `.venv\Scripts\python.exe`. Для сверки всех фактических source hashes передайте четыре checkout на закрепленных SHA из sources.json:
 
 ```sh
 .venv/bin/python scripts/validate.py \
   --upstream superpowers-symfony=<first-checkout> \
-  --upstream symfony-skills=<second-checkout>
+  --upstream symfony-skills=<second-checkout> \
+  --docs-checkout symfony-docs=<symfony-docs-8.1-checkout> \
+  --docs-checkout symfony-ai=<symfony-ai-checkout>
 ```
 
 Проверка старого первого донора через `--upstream-dir <checkout>` также поддерживается. Обычная проверка работает без сети и проверяет структуру provenance; она не скачивает upstream.
@@ -75,4 +79,4 @@ python3 -m venv .venv
 
 ## Лицензия
 
-[MIT](LICENSE). Оба донорских copyright и полные notices сохранены в [THIRD_PARTY_NOTICES.md](skills/symfony-best-practices/THIRD_PARTY_NOTICES.md).
+[MIT](LICENSE) для собственного пакета. Symfony Docs использованы как справочный источник под CC BY-SA 3.0; текст руководства и его примеры не включены. Полные MIT notices двух доноров и Symfony AI сохранены в [THIRD_PARTY_NOTICES.md](skills/symfony-best-practices/THIRD_PARTY_NOTICES.md).

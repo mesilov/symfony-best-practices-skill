@@ -29,3 +29,11 @@ Use the existing login-throttling/rate-limit mechanism when login abuse is in sc
 Exercise the actual firewall: successful/failed login, missing/invalid credentials, disabled user, cross-tenant denial, entry-point behavior, password changes/rehash, logout and CSRF as applicable. Inspect first-match routing and negative paths with functional tests; a mocked current user does not prove authentication. Use [JWT](jwt.md) for token-specific trust/lifecycle and [Authorization](authorization-and-rate-limiting.md) for resource policy.
 
 Primary guidance: [Symfony Security](https://symfony.com/doc/8.0/security.html), [custom authenticators](https://symfony.com/doc/8.0/security/custom_authenticator.html), [access control](https://symfony.com/doc/8.0/security/access_control.html), [passwords](https://symfony.com/doc/8.0/security/passwords.html).
+
+## User, password, and CSRF details
+
+Keep the user identifier/provider lookup, refreshed identity and user checker consistent with the firewall. Role changes/account disable behavior must match stateful token refresh and any stateless-token revocation contract. Password upgrade/rehash should use supported hasher/provider persistence APIs, not replacement of a stored hash based only on caller input. Tune costs for the real runtime; test configuration may use a lower supported cost without weakening production.
+
+Forms integrate CSRF by default when configured; manual HTML/JSON writes need the project's explicit token generation/validation contract. Bind tokens to the intended action/context, and reject missing/invalid tokens. Stateless CSRF has its own origin/header/cookie requirements: use installed documentation/configuration and trusted-origin/proxy rules; it is not equivalent to disabling CSRF. Login/logout CSRF and remember-me are separate lifecycle concerns.
+
+Reviewed current-line sources: [Security and user/firewall/access control](https://symfony.com/doc/8.1/security.html), [passwords](https://symfony.com/doc/8.1/security/passwords.html), [CSRF](https://symfony.com/doc/8.1/security/csrf.html), [session behavior](../http/sessions.md).

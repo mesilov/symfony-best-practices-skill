@@ -34,3 +34,9 @@ Long-lived services can retain values resolved at construction. Restart workers 
 Check the presence and injection of new variables in development, test and deployment configuration. Validate casts and missing/invalid inputs, run the project's container/config lint, and verify service wiring through the chosen runtime. Commands such as `debug:container --env-vars`, `--parameters`, `debug:dotenv`, secrets reveal/decrypt operations and verbose configuration output may expose values: do not paste their raw output into reports. Use filtered/redacted diagnostics.
 
 Primary guidance: [configuration](https://symfony.com/doc/8.0/configuration.html), [env processors](https://symfony.com/doc/8.0/configuration/env_var_processors.html), [secrets](https://symfony.com/doc/8.0/configuration/secrets.html).
+
+## Effective configuration and kernel boundaries
+
+Inspect import order, environment-specific overrides and configuration references for the installed bundle. Parameters, env processors and service bindings solve different problems. Use lint/container checks without exposing secret values; syntax-valid YAML can still violate a bundle's schema. Kernel project/cache/build/log paths follow the actual release topology, not a fixed directory assumption. See [container/kernel configuration](../architecture/container-and-events.md) and [deployment](deployment-and-performance.md).
+
+Reviewed current-line source: [Symfony 8.1 configuration](https://symfony.com/doc/8.1/configuration.html).

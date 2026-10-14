@@ -37,7 +37,7 @@ DB transactions cannot roll back a successful external HTTP side effect. Use the
 
 - Ordinary retryable exception: transport retry strategy controls the finite budget/backoff; use this for bounded transient failure handling.
 - `UnrecoverableMessageHandlingException`: prevents normal retries; with a configured failure transport, the failed message can still be retained there.
-- `RecoverableMessageHandlingException`: on Symfony 8.0 it **forces retries and ignores `max_retries`**. Do not use it for a bounded retry contract. Its `retryDelay` argument is available on the 8.0 baseline; that delay alone does not restore the budget. Check the exact installed signature/strategy before using later controls such as `forceRetry`.
+- `RecoverableMessageHandlingException`: on Symfony 8.0 it **forces retries and ignores `max_retries`**. Do not use it for a bounded retry contract. Its `retryDelay` argument is available on the 8.0 baseline; that delay alone does not restore the budget. Symfony **8.1 adds `forceRetry: false`**, allowing a custom `retryDelay` while respecting `max_retries`. The default still forces retries. Check the installed signature before using that named argument on 8.0.
 
 Treat invalid requests/permanent business declines differently from provider downtime, 429, timeouts and unknown outcomes. Use bounded exponential backoff/jitter and provider Retry-After according to the actual policy. A custom `RetryStrategyInterface` is appropriate when built-in policy cannot express the contract; test its budget/delay logic including forced-retry exceptions. Never classify every failure as recoverable.
 
@@ -58,3 +58,9 @@ Primary guidance: [Symfony 8.0 Messenger](https://symfony.com/doc/8.0/messenger.
 ## Deferred dispatch versus durable outbox
 
 DispatchAfterCurrentBusStamp defers processing until the current bus completes; middleware ordering matters, including dispatch_after_current_bus before doctrine_transaction. Deferral alone is not a durable outbox or proof that a transport insert happened in the business transaction. Atomic DB + Doctrine-transport writes require the same physical connection and transaction with verified dispatch timing. Other brokers need their explicit outbox/relay reliability path. Test the rollback/crash window instead of assuming the stamp guarantees atomic publication.
+
+## Documentation review for 8.1
+
+Starting in 8.1, transport decoding failures follow the retry/failure-transport mechanism; earlier behavior could discard them. Inspect installed transport/serializer behavior and test malformed old payloads before assuming poison messages are retained. A rate-limited transport can block the whole worker; give it a dedicated worker when unrelated receivers must keep progressing.
+
+Current-line source: [Symfony 8.1 Messenger](https://symfony.com/doc/8.1/messenger.html). For remote integration, combine [HttpClient/webhooks](../http/http-client-and-webhooks.md) and [Mailer/Notifier](mailer-and-notifier.md); their delivery evidence and retry budgets are separate.

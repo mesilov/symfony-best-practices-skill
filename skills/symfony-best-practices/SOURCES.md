@@ -1,19 +1,19 @@
 # Sources and adaptation decisions
 
-Version 0.1.0, reviewed on 2026-10-13. Scope: Symfony 8.x; baseline API guidance checked against Symfony 8.0 / PHP 8.4+. Installed minor/package versions govern actual application use.
+Version 0.1.0, reviewed on 2026-10-15. Scope: Symfony 8.x; official documentation line 8.1 / PHP 8.4+, with explicit 8.0 compatibility notes. Installed minor/package versions govern actual application use.
 
 ## Pinned donors
 
 - superpowers-symfony: [dev-toolings/superpowers-symfony](https://github.com/dev-toolings/superpowers-symfony), `459bcd0b7742e2f636374daa3552d9574527410e`: 29 skills / 58 Markdown files.
 - symfony-skills: [fatonh/symfony-skills](https://github.com/fatonh/symfony-skills), `ecebbb967b4ae7006694aec9b32ec071c60d84d7`: 13 skills / 13 Markdown and 6 supporting PHP files.
 
-Together: 42 source-skill entries and 77 file hashes, plus both LICENSE hashes in [sources.json](sources.json), schema version 2. Identity is repository ID + skill name: both repositories' doctrine-migrations are preserved separately. The requested symfony-schedu typo is explicitly mapped to superpowers-symfony/symfony-scheduler.
+Together: 42 source-skill entries and 77 file hashes, plus both LICENSE hashes in [sources.json](sources.json), schema version 3. Identity is repository ID + skill name: both repositories' doctrine-migrations are preserved separately. The requested symfony-schedu typo is explicitly mapped to superpowers-symfony/symfony-scheduler.
 
 Hashes identify reviewed material; they do not prove runtime correctness. Templates/examples from the second donor were inspected and hashed, then rewritten as guidance rather than copied with placeholders. The full notices for both donors are included in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Semantic groups
 
-The 18 references live in seven directories: workflow, architecture, http, data, async, security, and presentation. Routing in [SKILL.md](SKILL.md) follows these groups; read only the references needed for a task. Overlapping donor topics share references rather than introducing duplicate instructions.
+The 31 references live in seven directories: workflow, architecture, http, data, async, security, and presentation. Routing in [SKILL.md](SKILL.md) follows these groups; read only the references needed for a task. Overlapping donor topics share references rather than introducing duplicate instructions.
 
 | Source | Donor skill | Consolidated reference |
 | --- | --- | --- |
@@ -78,3 +78,55 @@ The 18 references live in seven directories: workflow, architecture, http, data,
 References link to official Symfony, Doctrine, Foundry, UX, Lexik and RFC documentation. Primary source revisions/URLs are recorded in sources.json. Online documentation is not bundled and can change; check the consuming project's installed API.
 
 Original project work uses [LICENSE](LICENSE). Both donor MIT notices are preserved in full. Verification checks source hashes against explicitly supplied pinned checkouts; the normal offline validator checks schema, coverage, routing and notice integrity without downloading anything.
+
+## Official documentation review
+
+All 43 requested current URLs are represented by 40 unique pages: the Security page additionally covers the three requested anchors. The reviewed framework line is **8.1** (2026-10-15); the AI documentation is maintained in its own repository and its APIs follow installed AI package versions. Earlier 8.0 links remain compatibility evidence, not the current-line default.
+
+- Symfony Docs contributors: [pinned 8.1 source](https://github.com/symfony/symfony-docs/tree/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe), commit `9162aaaa515256a0ceeab6b98e313e9d1dcb89fe`; [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+- Symfony AI, Fabien Potencier and contributors: [pinned source](https://github.com/symfony/ai/tree/5ad77d9418152e61e5b2b2bbb29d070a07fc2a67), commit `5ad77d9418152e61e5b2b2bbb29d070a07fc2a67`; MIT.
+
+The following is a source-to-guidance map, not a bundled copy of the manuals. Guidance is an original synthesis of API facts and project decisions; manual prose/examples are not redistributed or relicensed. See sources.json `documentation` for all original URLs/anchors, exact source paths, revisions, SHA-256 and license hashes. The validator checks every selected page and combined donor/documentation coverage.
+
+| Official page | Addressed reference |
+| --- | --- |
+| [routing](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/routing.rst) | [routing-and-kernel](references/http/routing-and-kernel.md) |
+| [controller](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/controller.rst) | [routing-and-kernel](references/http/routing-and-kernel.md), [validation-and-forms](references/http/validation-and-forms.md) |
+| [components/http_kernel](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/components/http_kernel.rst) | [routing-and-kernel](references/http/routing-and-kernel.md) |
+| [reference/configuration/kernel](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/reference/configuration/kernel.rst) | [container-and-events](references/architecture/container-and-events.md), [configuration](references/workflow/configuration.md) |
+| [service_container](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/service_container.rst) | [container-and-events](references/architecture/container-and-events.md) |
+| [event_dispatcher](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/event_dispatcher.rst) | [container-and-events](references/architecture/container-and-events.md) |
+| [configuration](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/configuration.rst) | [configuration](references/workflow/configuration.md) |
+| [templates](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/templates.rst) | [twig-and-translation](references/presentation/twig-and-translation.md), [twig-components](references/presentation/twig-components.md) |
+| [doctrine](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/doctrine.rst) | [doctrine-modeling](references/data/doctrine-modeling.md), [doctrine-performance](references/data/doctrine-performance.md), [migrations](references/data/migrations.md) |
+| [forms](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/forms.rst) | [validation-and-forms](references/http/validation-and-forms.md) |
+| [validation](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/validation.rst) | [validation-and-forms](references/http/validation-and-forms.md) |
+| [testing](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/testing.rst) | [testing](references/workflow/testing.md) |
+| [session](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/session.rst) | [sessions](references/http/sessions.md) |
+| [cache](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/cache.rst) | [cache](references/data/cache.md) |
+| [logging](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/logging.rst) | [logging-and-errors](references/workflow/logging-and-errors.md) |
+| [controller/error_pages](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/controller/error_pages.rst) | [logging-and-errors](references/workflow/logging-and-errors.md), [rest-api](references/http/rest-api.md) |
+| [console](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/console.rst) | [console-commands](references/architecture/console-commands.md) |
+| [mailer](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/mailer.rst) | [mailer-and-notifier](references/async/mailer-and-notifier.md) |
+| [notifier](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/notifier.rst) | [mailer-and-notifier](references/async/mailer-and-notifier.md) |
+| [messenger](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/messenger.rst) | [messenger](references/async/messenger.md) |
+| [scheduler](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/scheduler.rst) | [scheduler](references/async/scheduler.md) |
+| [serializer](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/serializer.rst) | [serializer](references/http/serializer.md) |
+| [translation](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/translation.rst) | [twig-and-translation](references/presentation/twig-and-translation.md) |
+| [security](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/security.rst) | [authentication](references/security/authentication.md), [authorization-and-rate-limiting](references/security/authorization-and-rate-limiting.md) |
+| [security/passwords](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/security/passwords.rst) | [authentication](references/security/authentication.md) |
+| [security/csrf](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/security/csrf.rst) | [authentication](references/security/authentication.md), [validation-and-forms](references/http/validation-and-forms.md) |
+| [http_client](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/http_client.rst) | [http-client-and-webhooks](references/http/http-client-and-webhooks.md) |
+| [webhook](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/webhook.rst) | [http-client-and-webhooks](references/http/http-client-and-webhooks.md) |
+| [components/filesystem](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/components/filesystem.rst) | [framework-utilities](references/architecture/framework-utilities.md) |
+| [components/uid](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/components/uid.rst) | [framework-utilities](references/architecture/framework-utilities.md) |
+| [components/yaml](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/components/yaml.rst) | [framework-utilities](references/architecture/framework-utilities.md) |
+| [expression_language](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/expression_language.rst) | [framework-utilities](references/architecture/framework-utilities.md) |
+| [lock](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/lock.rst) | [workflow-and-locks](references/architecture/workflow-and-locks.md), [scheduler](references/async/scheduler.md) |
+| [workflow](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/workflow.rst) | [workflow-and-locks](references/architecture/workflow-and-locks.md) |
+| [deployment](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/deployment.rst) | [deployment-and-performance](references/workflow/deployment-and-performance.md) |
+| [performance](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/performance.rst) | [deployment-and-performance](references/workflow/deployment-and-performance.md) |
+| [http_cache](https://github.com/symfony/symfony-docs/blob/9162aaaa515256a0ceeab6b98e313e9d1dcb89fe/http_cache.rst) | [deployment-and-performance](references/workflow/deployment-and-performance.md), [cache](references/data/cache.md), [sessions](references/http/sessions.md) |
+| [ai/components/mate](https://github.com/symfony/ai/blob/5ad77d9418152e61e5b2b2bbb29d070a07fc2a67/docs/components/mate.rst) | [ai-mate](references/workflow/ai-mate.md) |
+| [ai/bundles/mcp-bundle](https://github.com/symfony/ai/blob/5ad77d9418152e61e5b2b2bbb29d070a07fc2a67/docs/bundles/mcp-bundle.rst) | [ai-integration](references/architecture/ai-integration.md) |
+| [ai/bundles/ai-bundle](https://github.com/symfony/ai/blob/5ad77d9418152e61e5b2b2bbb29d070a07fc2a67/docs/bundles/ai-bundle.rst) | [ai-integration](references/architecture/ai-integration.md) |

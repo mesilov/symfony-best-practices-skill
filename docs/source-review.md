@@ -20,7 +20,6 @@
 | O10 | Scheduler требует только один consumer и смешивает stateful/lock с защитой heavy job | Координация consumers допустима; emission lock, job overlap, catch-up и business completion разделены |
 | O11 | Cache предлагает универсальные tags/hash/expiry и описывает ранний recompute как stale zero-latency | Выбор зависит от freshness/coherence; tenant/user/permissions входят в контракт ключа, invalidation после commit, topology проверяется |
 | O12 | Несколько capabilities названы 8.1+ как группа без точного package/signature | Используется проверенный 8.0 baseline; новый API сверяется по конкретному component/minor и owning class |
-
 | O13 | console-commands запрещает supported Command/execute, named arguments и требует 8.1 method form | Сохраняется supported классическая форма при необходимости; 8.0 invokable и MapInput покрыты, новые method APIs gated по installed minor |
 | O14 | bundle-organization задает обязательную module-first структуру и широкий Domain exclude | Flat layout допустим, app modules не становятся bundles; из discovery исключаются POJOs, не все реальные domain services |
 | O15 | problem-details помещает HTTP status/type в domain exception | Mapping выполняется в HTTP adapter; pure domain не получает Symfony/HTTP dependencies |
@@ -49,3 +48,24 @@
 SHA-256 всех 77 файлов фактически сверяются validator с обоими pinned checkout через повторяемые --upstream ID=PATH. Legacy --upstream-dir проверяет первый checkout. Обычный offline validator проверяет форму provenance и лицензий, а не скачивает upstream. Обе исходные MIT-лицензии воспроизведены полностью и входит в оба архива; документы первичных источников не копируются в пакет.
 
 Сценарное ревью обнаружило неоднозначный порядок checkpoint/flush в новом batch pseudocode: теперь ORM checkpoint изменяется до final flush, а прямой DBAL update явно выполняется внутри той же transaction. Сценарные решения и структурный validator не доказывают поведение каждого API в реальном приложении; такую проверку выполняют проектные тесты/CI при применении.
+
+## Дополнение официальной документации — 2026-10-15
+
+Проверены 43 пользовательские ссылки (40 документов) по pinned Symfony Docs 8.1 и Symfony AI. Все страницы сопоставлены с 31 reference; прежние донорские corrections сохранены как историческая проверка 8.0. [Полная карта](official-documentation-review-2026-10-15.md).
+
+| ID | Риск / новый контекст | Решение в эталоне |
+| --- | --- | --- |
+| O23 | Подвижный current и независимый цикл Symfony AI | Review 8.1 закреплен SHA/hash; установленный minor решает API; AI/Mate/MCP проверяются отдельно |
+| O24 | Route collisions, matching conditions и HttpKernel main/subrequests | Requirements/priority и генерация URL, lifecycle events, явный main-request scope и отсутствие tenant state в shared service |
+| O25 | Autowiring и listeners трактуются как неявный orchestration | Aliases/tag/decorator/event order и actual container wiring; обязательная бизнес-операция остается явной |
+| O26 | Flash/CSRF/session случайно делают страницу приватной; Redis session races | Ленивый запуск и private cache сохраняются, TTL/GC разделены, locking handler проверяется |
+| O27 | Twig raw, locale и широкая entity serialization | Контекстное escaping, явные locale/cache variants и Serializer DTO/groups/type/size boundaries |
+| O28 | HttpClient lazy responses и неверный общий timeout/retry | Явное чтение/обработка, idle timeout и total max_duration, bounded retries, SSRF/TLS и provider idempotency |
+| O29 | Webhook подпись после JSON decode/re-encode или без production secret | Проверка исходных bytes/secret/freshness/replay, durable acceptance и concurrent dedupe |
+| O30 | Queued email считается доставленным или откатываемым вместе с DB | Разделены constructed/queued/accepted/delivered; serializable context и post-commit outbox |
+| O31 | Workflow can() считается резервированием, Lock lease — гарантией one-time effect | Concurrency при apply/persist, guards без effects, shared store/renewal/lost ownership и DB constraints |
+| O32 | Utility APIs применяются без trust boundary | Path containment/symlinks, неавторизующий UID, безопасные YAML flags и ограниченная ExpressionLanguage surface |
+| O33 | cache:clear из CLI считается reset FPM/OPcache и deployment proof | Install lock, release-compatible migration/cache, правильный runtime restart, supervision и реальная smoke/rollback проверка |
+| O34 | Recoverable на всех 8.x трактуется одинаково | 8.0 forced retry сохранен; в 8.1 forceRetry:false соблюдает max_retries; poison decode failures проверяются по версии |
+| O35 | Mate смешан с MCP server | Текущий Mate — dev CLI; discovery/setup effects проверяются, metadata/log output недоверенный и может быть stale |
+| O36 | MCP/AI wildcard tools и retrieved instructions дают полномочия | Explicit registries/tools, реальная auth/authz, независимые session/identity, data trust, egress/budget и invocation tests |

@@ -11,6 +11,8 @@ from urllib.parse import unquote, urlsplit
 
 import yaml
 
+from documentation import REPOSITORIES, validate_documentation
+
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills/symfony-best-practices"
 FIRST_DONORS = set("bootstrap-check config-env-parameters controller-cleanup cqrs-and-handlers daily-workflow doctrine-batch-processing doctrine-fetch-modes doctrine-fixtures-foundry doctrine-migrations doctrine-relations doctrine-transactions e2e-panther-playwright effective-context form-types-validation functional-tests interfaces-and-autowiring messenger-retry-failures ports-and-adapters quality-checks rate-limiting strategy-pattern symfony-cache symfony-messenger symfony-scheduler symfony-voters tdd-with-phpunit test-doubles-mocking twig-components value-objects-and-dtos".split())
@@ -32,7 +34,7 @@ HEX64 = re.compile(r"[0-9a-f]{64}\Z")
 LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 
 
-def validate(skill_dir=SKILL, upstream_dirs=None):
+def validate(skill_dir=SKILL, upstream_dirs=None, docs_dirs=None):
     skill_dir = Path(skill_dir).absolute()
     version = (ROOT / "VERSION").read_text().strip()
     errors = []
@@ -97,7 +99,7 @@ def validate(skill_dir=SKILL, upstream_dirs=None):
                 require(unquote(parsed.fragment) in anchors, f"Broken heading link: {target}")
 
     references = {p.relative_to(skill_dir).as_posix() for p in (skill_dir / "references").rglob("*.md")}
-    require(len(references) == 18, "Expected 18 thematic references")
+    require(len(references) == 31, "Expected 31 thematic references")
     require({p.name for p in (skill_dir / "references").iterdir() if p.is_dir()} == GROUPS, "Expected the seven semantic groups")
     require(all(len(Path(r).parts) == 3 and Path(r).parts[1] in GROUPS for r in references), "References must live directly in their semantic group")
     routed = {t for t in LINK.findall(match[2]) if t.startswith("references/")}
@@ -125,7 +127,7 @@ def validate(skill_dir=SKILL, upstream_dirs=None):
     try:
         manifest = json.loads(read("sources.json"))
         if not isinstance(manifest, dict): return errors + ["sources.json must be an object"]
-        require(manifest.get("schema_version") == 2, "Invalid provenance schema version")
+        require(manifest.get("schema_version") == 3, "Invalid provenance schema version")
         require(manifest.get("skill_version") == version, "Provenance version does not match VERSION")
         upstreams = manifest.get("upstreams", [])
         donors = manifest.get("donors", [])
@@ -180,7 +182,8 @@ def validate(skill_dir=SKILL, upstream_dirs=None):
                 if source_id in checkouts and source.get("path") in expected:
                     origin = Path(checkouts[source_id]) / source["path"]
                     require(origin.is_file() and hashlib.sha256(origin.read_bytes()).hexdigest() == digest, f"Upstream hash mismatch: {source_id}/{source['path']}")
-        require(targets == references, "Donor map must cover every thematic reference")
+        targets.update(validate_documentation(manifest.get("documentation"), references, docs_dirs or {}, notices, require))
+        require(targets == references, "Combined donor/documentation map must cover every thematic reference")
     except (ValueError, TypeError, KeyError) as exc: errors.append(f"Invalid provenance JSON/structure: {exc}")
     return errors
 
@@ -190,6 +193,7 @@ def main():
     parser.add_argument("--skill-dir", type=Path, default=SKILL)
     parser.add_argument("--upstream-dir", type=Path, help="Legacy alias for the superpowers-symfony checkout")
     parser.add_argument("--upstream", action="append", default=[], metavar="ID=PATH", help="Pinned checkout for a source ID; repeat for both sources")
+    parser.add_argument("--docs-checkout", action="append", default=[], metavar="ID=PATH", help="Official documentation checkout; repeat for symfony-docs and symfony-ai")
     args = parser.parse_args()
     try:
         checkouts = {}
@@ -199,12 +203,18 @@ def main():
             if not separator or not path or source_id not in SOURCES or source_id in checkouts:
                 raise ValueError("Each --upstream must use a distinct known ID=PATH")
             checkouts[source_id] = Path(path)
-        errors = validate(args.skill_dir, checkouts)
+        docs_checkouts = {}
+        for selection in args.docs_checkout:
+            source_id, separator, path = selection.partition("=")
+            if not separator or not path or source_id not in REPOSITORIES or source_id in docs_checkouts:
+                raise ValueError("Each --docs-checkout must use a distinct known ID=PATH")
+            docs_checkouts[source_id] = Path(path)
+        errors = validate(args.skill_dir, checkouts, docs_checkouts)
     except (OSError, UnicodeError, ValueError) as exc: errors = [str(exc)]
     if errors:
         for error in errors: print(f"ERROR: {error}")
         return 1
-    print(f"OK: symfony-best-practices {(ROOT / 'VERSION').read_text().strip()}; 7 groups / 18 references; 42 donors / 77 source files")
+    print(f"OK: symfony-best-practices {(ROOT / 'VERSION').read_text().strip()}; 7 groups / 31 references; 42 donors / 77 source files; 40 official documents / 43 requested URLs")
     return 0
 
 

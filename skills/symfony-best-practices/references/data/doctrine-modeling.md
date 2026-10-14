@@ -41,3 +41,9 @@ Primary guidance: [Doctrine associations](https://www.doctrine-project.org/proje
 Prefer typed PHP attribute mappings and compatible immutable date/backed-enum types where they match the domain. String-backed and integer-backed enums are both valid when their values are intentional; do not confuse a stable integer backing value with an ordinal. ID choice follows existing schema/API contracts; UUID v7 can help particular allocation/indexing needs, but neither UUIDs nor private constructors are universal ORM requirements. Factories/behavior methods help invariants; verify hydration/proxies and fixture tooling before changing construction.
 
 A flush synchronizes the whole pending unit of work; it is not the outer commit boundary when an explicit transaction is already active. postFlush is also not proof of that outer commit. Use a real after-commit/outbox lifecycle for external effects. Avoid recursive flushes from lifecycle callbacks.
+
+## Framework integration review
+
+Use the installed DoctrineBundle/ORM/DBAL versions and mapping conventions; Symfony's framework minor does not determine their APIs. Keep queries parameterized, repository methods use-case focused, and transaction ownership explicit. Schema validation/diff requires the intended database/platform configuration. Do not use schema-update force as a deployment substitute. Review real SQL/query and migration behavior with [query performance](doctrine-performance.md) and [migrations](migrations.md).
+
+Reviewed source: [Symfony 8.1 Doctrine integration](https://symfony.com/doc/8.1/doctrine.html).

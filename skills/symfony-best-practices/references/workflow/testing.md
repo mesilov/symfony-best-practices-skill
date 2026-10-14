@@ -62,3 +62,11 @@ Choose the installed Panther or Playwright stack. Use stable selectors, explicit
 Verify driver/browser setup and server lifecycle in CI. Cover critical user journeys in E2E and cheaper rules at unit/kernel/HTTP levels. State which layers actually ran.
 
 Primary guidance: [Symfony testing](https://symfony.com/doc/8.0/testing.html), [Panther](https://symfony.com/doc/8.0/testing/end_to_end.html), [Foundry](https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html), [PHPUnit](https://docs.phpunit.de/), [Playwright assertions](https://playwright.dev/docs/test-assertions).
+
+## Additional framework boundaries
+
+Kernel clients can reboot between requests; verify test doubles, service reset and authentication persistence across the actual sequence. Use profiler/query assertions when query behavior changes, and disable exception catching only in tests where seeing the underlying failure is intended. A passing isolated test does not establish production debug/error rendering.
+
+For changed integrations, use [HTTP/webhook](../http/http-client-and-webhooks.md), [Mailer/Notifier](../async/mailer-and-notifier.md), [Workflow/Lock](../architecture/workflow-and-locks.md), and [AI/MCP](../architecture/ai-integration.md) checks. Distinguish constructed/queued/sent/provider-accepted outcomes. Test sessions with real cookies and the selected handler when persistence/locking matters.
+
+Reviewed current-line source: [Symfony 8.1 testing](https://symfony.com/doc/8.1/testing.html).
