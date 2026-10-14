@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add a repository-only maintainer skill that requires a meaningful CHANGELOG entry before opening any PR/MR, including drafts and documentation changes.
+- Preserve existing feature branches when continuing, reviewing, or publishing their work; create a fresh branch only for new work.
 
 ## 0.1.0 — локальная подготовка, дополнено 2026-10-15
 

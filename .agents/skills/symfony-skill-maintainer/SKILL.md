@@ -10,7 +10,9 @@ Maintain this repository and its distributable skill. This maintainer skill is r
 
 ## Establish context
 
-Read [AGENTS.md](../../../AGENTS.md), the requested scope, Git status, remotes, and current branches. Preserve unrelated changes. Start from fresh `origin/main` on a `codex/` branch, using an isolated worktree when needed. Follow an explicitly requested alternative base.
+Read [AGENTS.md](../../../AGENTS.md), the requested scope, Git status, remotes, and current branches. Preserve unrelated changes.
+
+For new work, start from fresh `origin/main` on a `codex/` branch, using an isolated worktree when needed. When continuing, reviewing, or publishing existing work, retain the branch/worktree containing the requested commits. Refresh its actual target and inspect the complete diff. Follow an explicitly requested alternative base.
 
 The distributable lives in `skills/symfony-best-practices/`. Validation/build tools live in `scripts/`; package tests and decision scenarios live in `tests/`. Use the project's Python environment and pinned development dependencies.
 
