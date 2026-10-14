@@ -1,0 +1,4 @@
+interface:
+  display_name: "Symfony Skill Maintainer"
+  short_description: "Maintain Symfony skill sources, checks, and releases"
+  default_prompt: "Use $symfony-skill-maintainer to maintain this repository, run the relevant checks, and report verified source or release evidence."

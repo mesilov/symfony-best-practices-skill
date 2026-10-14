@@ -55,6 +55,8 @@ The skill combines **42 donor skills** and **40 Symfony documentation pages**. A
 
 ## Validation and build
 
+For maintenance of this repository, use `$symfony-skill-maintainer`: [entrypoint](.agents/skills/symfony-skill-maintainer/SKILL.md), [source updates](.agents/skills/symfony-skill-maintainer/references/sources.md), [checks](.agents/skills/symfony-skill-maintainer/references/checks.md), and [releases](.agents/skills/symfony-skill-maintainer/references/releases.md). The canonical skill lives in `.agents/skills/`, with relative aliases in `.codex/skills/` and `.claude/skills/`. It is repository-only and is excluded from the distributable archives. [Maintainer verification](docs/verification-maintainer-2026-10-15.md).
+
 From the repository root, with Python 3.11+:
 
 ```sh

@@ -4,6 +4,7 @@
 
 - Add a repository-only maintainer skill that requires a meaningful CHANGELOG entry before opening any PR/MR, including drafts and documentation changes.
 - Preserve existing feature branches when continuing, reviewing, or publishing their work; create a fresh branch only for new work.
+- Extend maintainer guidance with source/provenance updates, validation and release asset verification; add Codex/Claude aliases and structural tests while preserving the changelog gate and existing-branch rule.
 
 ## 0.1.0 — локальная подготовка, дополнено 2026-10-15
 

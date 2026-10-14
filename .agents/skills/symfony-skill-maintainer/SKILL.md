@@ -1,48 +1,41 @@
 ---
 name: symfony-skill-maintainer
-description: Use when maintaining the symfony-best-practices-skill repository, changing its skills, sources, documentation or build tools, preparing a pull/merge request, or handling a release.
+description: Use when maintaining the symfony-best-practices-skill repository, refreshing donor or official-documentation provenance, changing package checks, preparing pull/merge requests, or handling its releases.
 license: MIT
 ---
 
 # Symfony Skill Maintainer
 
-Maintain this repository and its distributable skill. This maintainer skill is repository-only; keep it outside `skills/symfony-best-practices/` and release archives. Here, MR and PR both mean a GitHub pull request.
+Maintain this repository's **skill package**, using its actual scripts, source manifest and release evidence. For work inside a consuming Symfony application, use that application's instructions and the distributed `symfony-best-practices` skill.
 
-## Establish context
+## Establish repository context
 
-Read [AGENTS.md](../../../AGENTS.md), the requested scope, Git status, remotes, and current branches. Preserve unrelated changes.
+Run `pwd`, `git status --short --branch`, `git worktree list` and `git remote -v`. Work from the repository root; inspect `AGENTS.md`, `README.md`, `VERSION`, `CHANGELOG.md`, `scripts/`, `tests/` and `.github/workflows/validate.yml` for the requested operation. Refresh remote state before delivery decisions.
 
-For new work, start from fresh `origin/main` on a `codex/` branch, using an isolated worktree when needed. When continuing, reviewing, or publishing existing work, retain the branch/worktree containing the requested commits. Refresh its actual target and inspect the complete diff. Follow an explicitly requested alternative base.
+Preserve unrelated changes. For new work, start from fresh `origin/main` on a `codex/` branch, using an isolated worktree when needed. When continuing, reviewing or publishing existing work, retain its branch/worktree and intended commits. Follow an explicitly requested alternative base; inspect the complete diff against the refreshed actual target before integration.
 
-The distributable lives in `skills/symfony-best-practices/`. Validation/build tools live in `scripts/`; package tests and decision scenarios live in `tests/`. Use the project's Python environment and pinned development dependencies.
+## Package boundaries
 
-Keep `VERSION`, skill metadata, provenance, license notices, links, and release names consistent when changing the package. Apply architecture/API guidance in the distributable only to tasks in its scope.
+| Path | Responsibility |
+| --- | --- |
+| `skills/symfony-best-practices/` | Installable product: entrypoint, references, metadata, provenance and licenses |
+| `.agents/skills/symfony-skill-maintainer/` | Canonical repository maintainer instructions and conditional procedures |
+| `.codex/skills/`, `.claude/skills/` | Relative aliases to the canonical maintainer skill |
+| `scripts/`, `tests/`, `.github/workflows/` | Offline validation, deterministic packaging and CI |
+| `docs/` | Review decisions and dated verification evidence |
+
+Keep agent instructions in English and preserve the current README's language and style. Keep the product entrypoint within the validator's word limit and load detail through thematic references. The maintainer skill is repository-only; adding it does not change the product version or archive contents.
 
 ## Changelog gate before every PR
 
-**Before opening any PR/MR, commit a meaningful [CHANGELOG.md](../../../CHANGELOG.md) update in the same branch.** This applies to draft PRs and to documentation, tests, skills, build tools, fixes, and small changes.
+Before opening any PR/MR, including drafts and documentation changes, commit a meaningful `CHANGELOG.md` entry for the actual change in the same branch. PR/MR mean GitHub pull requests here. Inspect its substantive diff against the refreshed target; recheck when scope or target changes. Follow the detailed gate in [checks](references/checks.md).
 
-Describe the actual change and its effect. Add it under `Unreleased`, following the file's format. For a release, move the accumulated entries into the appropriate version section instead of inventing a new change.
+## Read the relevant procedure
 
-Refresh the actual target branch. Inspect both the changelog text and its substantive diff against that branch. An existing entry already in the target, an unrelated entry, whitespace, deletion alone, or a promise to add notes later does not satisfy this gate.
+- Source refresh, new coverage, version compatibility or licensing: [sources](references/sources.md).
+- Repository edits, check failures and package acceptance: [checks](references/checks.md).
+- Version bumps, tags, release assets or publication recovery: [releases](references/releases.md), then checks.
 
-If the entry is missing, add it and commit it before opening the PR. If a truthful entry cannot be written, stop PR creation and explain the unresolved point. Do not invent filler or duplicate history to produce a diff.
+Do the preparation and checks covered by the request. Execute merge, push, tag or publication when authorized by the task; loading this skill grants no additional scope. Use existing authorization without repeatedly requesting it.
 
-Example: `Add repository maintainer guidance that requires changelog entries before opening any PR.`
-
-## Validate and deliver
-
-From the repository root, run through the selected Python environment:
-
-```sh
-python scripts/validate.py
-python -m unittest discover -s tests -v
-python scripts/build_release.py
-git diff --check
-```
-
-For changed skills, use an available skill validator and focused decision scenarios. Confirm that archives contain only the distributable. Check staged/new files as well as tracked differences.
-
-When PR creation is authorized, push the branch and open it against `main` unless another target was requested. Check its base, head commit, scope, changelog, and CI. Recheck the gate after scope or target changes.
-
-A PR request does not authorize merge, tags, or releases. Perform those only within the user's authorization. Report confirmed links, commits, checks, and remaining limits. Distinguish local validation, CI, merge, and published release evidence.
+Report branch/base, changed scope, source revisions, executed checks and skipped or blocked checks. Distinguish local validation, source-byte verification, terminal CI, integration and published assets. Preserve historical evidence; append a dated record when the result changes.
